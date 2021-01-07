@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <metric id="2351000" type="sizing-measure" originalName="Number of ColdFusion Components" section="name">
+    <english>Number of ColdFusion Components</english>
+  </metric>
+  <metric id="2351000" type="sizing-measure" originalName="Number of ColdFusion Components" section="shortName">
+    <english>CF Components</english>
+  </metric>
+  <metric id="2351002" type="sizing-measure" originalName="Number of ColdFusion Templates" section="name">
+    <english>Number of ColdFusion Templates</english>
+  </metric>
+  <metric id="2351002" type="sizing-measure" originalName="Number of ColdFusion Templates" section="shortName">
+    <english>CF Templates</english>
+  </metric>
+  <metric id="2351006" type="sizing-measure" originalName="Number of ColdFusion Functions" section="name">
+    <english>Number of ColdFusion Functions</english>
+  </metric>
+  <metric id="2351006" type="sizing-measure" originalName="Number of ColdFusion Functions" section="shortName">
+    <english>CF Functions</english>
+  </metric>
+  <metric id="2351012" type="sizing-measure" originalName="Number of ColdFusion Queries" section="name">
+    <english>Number of ColdFusion Queries</english>
+  </metric>
+  <metric id="2351012" type="sizing-measure" originalName="Number of ColdFusion Queries" section="shortName">
+    <english>CF Queries</english>
+  </metric>
+  <metric id="2351120" type="quality-rule" originalName="ColdFusion: Avoid Functions with a high Fan-out" section="description">
+    <english>Avoid Artifacts with High Fan-In (Fan-In &lt; X). The Fan-In of an Artifact is the number of other Artifacts that are referencing it. When computing the Fan-In of an Artifact, multiple accesses to it from the same Artifact are counted as one access. The threshold level is a parameter that can be changed at will.</english>
+  </metric>
+  <metric id="2351120" type="quality-rule" originalName="ColdFusion: Avoid Functions with a high Fan-out" section="name">
+    <english>ColdFusion: Avoid Functions with a high Fan-out</english>
+  </metric>
+  <metric id="2351120" type="quality-rule" originalName="ColdFusion: Avoid Functions with a high Fan-out" section="rationale">
+    <english>The higher the number of reference to an Artifact, the more difficult the maintenance as all referencing Artifacts will have to be updated or tested.</english>
+  </metric>
+  <metric id="2351120" type="quality-rule" originalName="ColdFusion: Avoid Functions with a high Fan-out" section="remediation">
+    <english>Reduce the number of references to the Artifact</english>
+  </metric>
+  <metric id="2351122" type="quality-rule" originalName="ColdFusion: Avoid Functions with a high Fan-in" section="description">
+    <english>Avoid Artifacts with High Fan-Out (Fan-Out &lt; X). The Fan-out of an Artifact is the number of other Artifacts that are referenced in it. When computing the Fan-Out of an Artifact, multiple accesses to the same component of an Artifact are counted as one access. The threshold is a parameter and can be changed at will. Artifacts are</english>
+  </metric>
+  <metric id="2351122" type="quality-rule" originalName="ColdFusion: Avoid Functions with a high Fan-in" section="name">
+    <english>ColdFusion: Avoid Functions with a high Fan-in</english>
+  </metric>
+  <metric id="2351122" type="quality-rule" originalName="ColdFusion: Avoid Functions with a high Fan-in" section="rationale">
+    <english>The higher the number of referenced Artifacts, the more difficult the maintenance and evolution as all updates in referenced Artifacts will have to be tested and taken into account.</english>
+  </metric>
+  <metric id="2351122" type="quality-rule" originalName="ColdFusion: Avoid Functions with a high Fan-in" section="remediation">
+    <english>Reduce the number of referenced Artifacts</english>
+  </metric>
+  <metric id="2351128" type="quality-rule" originalName="ColdFusion: Avoid Templates with a high Fan-out" section="description">
+    <english>Avoid Artifacts with High Fan-In (Fan-In &lt; X). The Fan-In of an Artifact is the number of other Artifacts that are referencing it. When computing the Fan-In of an Artifact, multiple accesses to it from the same Artifact are counted as one access. The threshold level is a parameter that can be changed at will.</english>
+  </metric>
+  <metric id="2351128" type="quality-rule" originalName="ColdFusion: Avoid Templates with a high Fan-out" section="name">
+    <english>ColdFusion: Avoid Templates with a high Fan-out</english>
+  </metric>
+  <metric id="2351128" type="quality-rule" originalName="ColdFusion: Avoid Templates with a high Fan-out" section="output">
+    <english>This report lists all Templates with High Fan-In. It provides the following information: Template full name, Fan-In value</english>
+  </metric>
+  <metric id="2351128" type="quality-rule" originalName="ColdFusion: Avoid Templates with a high Fan-out" section="rationale">
+    <english>The higher the number of reference to an Artifact, the more difficult the maintenance as all referencing Artifacts will have to be updated or tested.</english>
+  </metric>
+  <metric id="2351128" type="quality-rule" originalName="ColdFusion: Avoid Templates with a high Fan-out" section="remediation">
+    <english>Reduce the number of references to the Artifact</english>
+  </metric>
+  <metric id="2351128" type="quality-rule" originalName="ColdFusion: Avoid Templates with a high Fan-out" section="total">
+    <english>Number of Templates</english>
+  </metric>
+  <metric id="2351130" type="quality-rule" originalName="ColdFusion: Avoid Templates with a high Fan-in" section="description">
+    <english>Avoid Artifacts with High Fan-Out (Fan-Out &lt; X). The Fan-out of an Artifact is the number of other Artifacts that are referenced in it. When computing the Fan-Out of an Artifact, multiple accesses to the same component of an Artifact are counted as one access. The threshold is a parameter and can be changed at will. Artifacts are</english>
+  </metric>
+  <metric id="2351130" type="quality-rule" originalName="ColdFusion: Avoid Templates with a high Fan-in" section="name">
+    <english>ColdFusion: Avoid Templates with a high Fan-in</english>
+  </metric>
+  <metric id="2351130" type="quality-rule" originalName="ColdFusion: Avoid Templates with a high Fan-in" section="output">
+    <english>This report lists all Template with a Fan-Out greater than X It provides the following information: Template full name, Fan-Out value</english>
+  </metric>
+  <metric id="2351130" type="quality-rule" originalName="ColdFusion: Avoid Templates with a high Fan-in" section="rationale">
+    <english>The higher the number of referenced Artifacts, the more difficult the maintenance and evolution as all updates in referenced Artifacts will have to be tested and taken into account.</english>
+  </metric>
+  <metric id="2351130" type="quality-rule" originalName="ColdFusion: Avoid Templates with a high Fan-in" section="remediation">
+    <english>Reduce the number of referenced Artifacts</english>
+  </metric>
+  <metric id="2351130" type="quality-rule" originalName="ColdFusion: Avoid Templates with a high Fan-in" section="total">
+    <english>Number of Templates</english>
+  </metric>
+  <metric id="2351180" type="quality-rule" originalName="ColdFusion: Avoid Functions with high Cyclomatic Complexity" section="description">
+    <english>Avoid Artifacts with High Cyclomatic Complexity (CC greater than X) Cyclomatic Complexity is a measure of the complexity of the control structure of an Artifact. It is the number of linearly independent paths and therefore, the minimum number of independent paths when executing the software. The threshold is a parameter and can be changed at will.</english>
+  </metric>
+  <metric id="2351180" type="quality-rule" originalName="ColdFusion: Avoid Functions with high Cyclomatic Complexity" section="name">
+    <english>ColdFusion: Avoid Functions with high Cyclomatic Complexity</english>
+  </metric>
+  <metric id="2351180" type="quality-rule" originalName="ColdFusion: Avoid Functions with high Cyclomatic Complexity" section="rationale">
+    <english>The effort and time for diagnosis of deficiencies or causes of failures, or for identification of parts to be modified is directly related to the number of execution paths, i.e. the complexity of the control flow. Analyzability declines with increasing Cyclomatic Complexity. Each modification must be correct for all execution paths. Cyclomatic Complexity computes the number of the linearly independent paths, a lower bound of all execution paths ignoring multiple iterations. Changeability declines with increasing Cyclomatic Complexity. Complete testing requires coverage of all execution paths. Cyclomatic Complexity computes the number of the linearly independent paths, a lower bound of all execution paths ignoring multiple iterations. Testability declines with increasing Cyclomatic Complexity.</english>
+  </metric>
+  <metric id="2351180" type="quality-rule" originalName="ColdFusion: Avoid Functions with high Cyclomatic Complexity" section="reference">
+    <english>Carnegie Mellon's Software Engineering Institute on Cyclomatic Complexity http://www.sei.cmu.edu/str/descriptions/cyclomatic_body.html NIST (National Institute of Standards and Technology) Structured Testing: A Testing Methodology Using the Cyclomatic Complexity Metric http://hissa.nist.gov/HHRFdata/Artifacts/ITLdoc/235/sttoc.htm</english>
+  </metric>
+  <metric id="2351180" type="quality-rule" originalName="ColdFusion: Avoid Functions with high Cyclomatic Complexity" section="remediation">
+    <english>Review the design of the Artifact to reduce number of independent paths. E.g.: Reduce the number of conditional statements.</english>
+  </metric>
+  <metric id="2351184" type="quality-rule" originalName="ColdFusion: Avoid Templates with high Cyclomatic Complexity" section="description">
+    <english>Avoid Artifacts with High Cyclomatic Complexity (CC greater than X) Cyclomatic Complexity is a measure of the complexity of the control structure of an Artifact. It is the number of linearly independent paths and therefore, the minimum number of independent paths when executing the software. The threshold is a parameter and can be changed at will.</english>
+  </metric>
+  <metric id="2351184" type="quality-rule" originalName="ColdFusion: Avoid Templates with high Cyclomatic Complexity" section="name">
+    <english>ColdFusion: Avoid Templates with high Cyclomatic Complexity</english>
+  </metric>
+  <metric id="2351184" type="quality-rule" originalName="ColdFusion: Avoid Templates with high Cyclomatic Complexity" section="output">
+    <english>This report lists all Templates with a Cyclomatic Complexity greater than X. It provides the following information: Template full name, CC</english>
+  </metric>
+  <metric id="2351184" type="quality-rule" originalName="ColdFusion: Avoid Templates with high Cyclomatic Complexity" section="rationale">
+    <english>The effort and time for diagnosis of deficiencies or causes of failures, or for identification of parts to be modified is directly related to the number of execution paths, i.e. the complexity of the control flow. Analyzability declines with increasing Cyclomatic Complexity. Each modification must be correct for all execution paths. Cyclomatic Complexity computes the number of the linearly independent paths, a lower bound of all execution paths ignoring multiple iterations. Changeability declines with increasing Cyclomatic Complexity. Complete testing requires coverage of all execution paths. Cyclomatic Complexity computes the number of the linearly independent paths, a lower bound of all execution paths ignoring multiple iterations. Testability declines with increasing Cyclomatic Complexity.</english>
+  </metric>
+  <metric id="2351184" type="quality-rule" originalName="ColdFusion: Avoid Templates with high Cyclomatic Complexity" section="reference">
+    <english>Carnegie Mellon's Software Engineering Institute on Cyclomatic Complexity http://www.sei.cmu.edu/str/descriptions/cyclomatic_body.html NIST (National Institute of Standards and Technology) Structured Testing: A Testing Methodology Using the Cyclomatic Complexity Metric http://hissa.nist.gov/HHRFdata/Artifacts/ITLdoc/235/sttoc.htm</english>
+  </metric>
+  <metric id="2351184" type="quality-rule" originalName="ColdFusion: Avoid Templates with high Cyclomatic Complexity" section="remediation">
+    <english>Review the design of the Artifact to reduce number of independent paths. E.g.: Reduce the number of conditional statements.</english>
+  </metric>
+  <metric id="2351184" type="quality-rule" originalName="ColdFusion: Avoid Templates with high Cyclomatic Complexity" section="total">
+    <english>Number of Templates</english>
+  </metric>
+  <metric id="2351322" type="quality-rule" originalName="ColdFusion: Avoid unreferenced Functions" section="description">
+    <english>All Functions should be referenced. An unreferenced Artifact is an Artifact that is not explicitly called from within the analyzed code.</english>
+  </metric>
+  <metric id="2351322" type="quality-rule" originalName="ColdFusion: Avoid unreferenced Functions" section="name">
+    <english>ColdFusion: Avoid unreferenced Functions</english>
+  </metric>
+  <metric id="2351322" type="quality-rule" originalName="ColdFusion: Avoid unreferenced Functions" section="output">
+    <english>This report lists all unreferenced Functions.</english>
+  </metric>
+  <metric id="2351322" type="quality-rule" originalName="ColdFusion: Avoid unreferenced Functions" section="rationale">
+    <english>Unreferenced code may be the symptom of Dead Code. Dead Code must be avoided as it makes source code less readable and increases the cost of the software maintenance. Warning: Unreferenced code can also be the symptoms of missing code (code not included in the source code analysis) and / or can be the symptom of use of polymorphism. The intensive use of polymorphism can make the application easier to change but much more difficult to test, debug and stabilize.</english>
+  </metric>
+  <metric id="2351322" type="quality-rule" originalName="ColdFusion: Avoid unreferenced Functions" section="remediation">
+    <english>Check if the Artifact is truly unnecessary. Remove Artifacts that are not used.</english>
+  </metric>
+  <metric id="2351322" type="quality-rule" originalName="ColdFusion: Avoid unreferenced Functions" section="total">
+    <english>Number of Functions</english>
+  </metric>
+  <metric id="2351324" type="quality-rule" originalName="ColdFusion: Avoid unreferenced Templates" section="description">
+    <english>All Templates should be referenced. An unreferenced Artifact is an Artifact that is not explicitly called from within the analyzed code.</english>
+  </metric>
+  <metric id="2351324" type="quality-rule" originalName="ColdFusion: Avoid unreferenced Templates" section="name">
+    <english>ColdFusion: Avoid unreferenced Templates</english>
+  </metric>
+  <metric id="2351324" type="quality-rule" originalName="ColdFusion: Avoid unreferenced Templates" section="output">
+    <english>This report lists all unreferenced Templates.</english>
+  </metric>
+  <metric id="2351324" type="quality-rule" originalName="ColdFusion: Avoid unreferenced Templates" section="rationale">
+    <english>Unreferenced code may be the symptom of Dead Code. Dead Code must be avoided as it makes source code less readable and increases the cost of the software maintenance. Warning: Unreferenced code can also be the symptoms of missing code (code not included in the source code analysis) and / or can be the symptom of use of polymorphism. The intensive use of polymorphism can make the application easier to change but much more difficult to test, debug and stabilize.</english>
+  </metric>
+  <metric id="2351324" type="quality-rule" originalName="ColdFusion: Avoid unreferenced Templates" section="remediation">
+    <english>Check if the Artifact is truly unnecessary. Remove Artifacts that are not used.</english>
+  </metric>
+  <metric id="2351324" type="quality-rule" originalName="ColdFusion: Avoid unreferenced Templates" section="total">
+    <english>Number of Templates</english>
+  </metric>
+  <metric id="2351382" type="quality-rule" originalName="ColdFusion: Naming convention on Function" section="description">
+    <english>Name of Functions should start with prefix</english>
+  </metric>
+  <metric id="2351382" type="quality-rule" originalName="ColdFusion: Naming convention on Function" section="name">
+    <english>ColdFusion: Naming convention on Function</english>
+  </metric>
+  <metric id="2351382" type="quality-rule" originalName="ColdFusion: Naming convention on Function" section="output">
+    <english>This report lists all the Functions not having the desired prefix. Functions full name</english>
+  </metric>
+  <metric id="2351382" type="quality-rule" originalName="ColdFusion: Naming convention on Function" section="rationale">
+    <english>For readability aspects, naming conventions must be respected</english>
+  </metric>
+  <metric id="2351382" type="quality-rule" originalName="ColdFusion: Naming convention on Function" section="remediation">
+    <english>Change name according to the naming convention</english>
+  </metric>
+  <metric id="2351382" type="quality-rule" originalName="ColdFusion: Naming convention on Function" section="total">
+    <english>Number of Functions</english>
+  </metric>
+  <metric id="2351384" type="quality-rule" originalName="ColdFusion: Naming convention on Query" section="description">
+    <english>Name of Queries should start with prefix</english>
+  </metric>
+  <metric id="2351384" type="quality-rule" originalName="ColdFusion: Naming convention on Query" section="name">
+    <english>ColdFusion: Naming convention on Query</english>
+  </metric>
+  <metric id="2351384" type="quality-rule" originalName="ColdFusion: Naming convention on Query" section="output">
+    <english>This report lists all the Queries not having the desired prefix. Query full name</english>
+  </metric>
+  <metric id="2351384" type="quality-rule" originalName="ColdFusion: Naming convention on Query" section="rationale">
+    <english>For readability aspects, naming conventions must be respected</english>
+  </metric>
+  <metric id="2351384" type="quality-rule" originalName="ColdFusion: Naming convention on Query" section="remediation">
+    <english>Change name according to the naming convention</english>
+  </metric>
+  <metric id="2351384" type="quality-rule" originalName="ColdFusion: Naming convention on Query" section="total">
+    <english>Number of Queries</english>
+  </metric>
+  <metric id="2351386" type="quality-rule" originalName="ColdFusion: Naming convention on Template" section="description">
+    <english>Name of Templates should start with prefix</english>
+  </metric>
+  <metric id="2351386" type="quality-rule" originalName="ColdFusion: Naming convention on Template" section="name">
+    <english>ColdFusion: Naming convention on Template</english>
+  </metric>
+  <metric id="2351386" type="quality-rule" originalName="ColdFusion: Naming convention on Template" section="output">
+    <english>This report lists all the Templates not having the desired prefix. Template full name</english>
+  </metric>
+  <metric id="2351386" type="quality-rule" originalName="ColdFusion: Naming convention on Template" section="rationale">
+    <english>For readability aspects, naming conventions must be respected</english>
+  </metric>
+  <metric id="2351386" type="quality-rule" originalName="ColdFusion: Naming convention on Template" section="remediation">
+    <english>Change name according to the naming convention</english>
+  </metric>
+  <metric id="2351386" type="quality-rule" originalName="ColdFusion: Naming convention on Template" section="total">
+    <english>Number of Templates</english>
+  </metric>
+  <metric id="2351420" type="quality-rule" originalName="ColdFusion: Avoid code lines longer than 80 characters in Functions" section="description">
+    <english>Avoid Functions with lines longer than 80 characters</english>
+  </metric>
+  <metric id="2351420" type="quality-rule" originalName="ColdFusion: Avoid code lines longer than 80 characters in Functions" section="name">
+    <english>ColdFusion: Avoid code lines longer than 80 characters in Functions</english>
+  </metric>
+  <metric id="2351420" type="quality-rule" originalName="ColdFusion: Avoid code lines longer than 80 characters in Functions" section="output">
+    <english>This report lists all Functions with lines longer than 80 characters. It provides the following information: Function full name, number of long lines</english>
+  </metric>
+  <metric id="2351420" type="quality-rule" originalName="ColdFusion: Avoid code lines longer than 80 characters in Functions" section="rationale">
+    <english>For better readability and portability (printers, terminals, IDE), Artifacts should not have lines longer than 80 characters.</english>
+  </metric>
+  <metric id="2351420" type="quality-rule" originalName="ColdFusion: Avoid code lines longer than 80 characters in Functions" section="remediation">
+    <english>Consider splitting the line.</english>
+  </metric>
+  <metric id="2351420" type="quality-rule" originalName="ColdFusion: Avoid code lines longer than 80 characters in Functions" section="total">
+    <english>Number of Functions</english>
+  </metric>
+  <metric id="2351424" type="quality-rule" originalName="ColdFusion: Avoid code lines longer than 80 characters in Templates" section="description">
+    <english>Avoid Templates with lines longer than 80 characters</english>
+  </metric>
+  <metric id="2351424" type="quality-rule" originalName="ColdFusion: Avoid code lines longer than 80 characters in Templates" section="name">
+    <english>ColdFusion: Avoid code lines longer than 80 characters in Templates</english>
+  </metric>
+  <metric id="2351424" type="quality-rule" originalName="ColdFusion: Avoid code lines longer than 80 characters in Templates" section="output">
+    <english>This report lists all Templates with lines longer than 80 characters. It provides the following information: Template full name, number of long lines</english>
+  </metric>
+  <metric id="2351424" type="quality-rule" originalName="ColdFusion: Avoid code lines longer than 80 characters in Templates" section="rationale">
+    <english>For better readability and portability (printers, terminals, IDE), Artifacts should not have lines longer than 80 characters.</english>
+  </metric>
+  <metric id="2351424" type="quality-rule" originalName="ColdFusion: Avoid code lines longer than 80 characters in Templates" section="remediation">
+    <english>Consider splitting the line.</english>
+  </metric>
+  <metric id="2351424" type="quality-rule" originalName="ColdFusion: Avoid code lines longer than 80 characters in Templates" section="total">
+    <english>Number of Templates</english>
+  </metric>
+  <metric id="2351440" type="quality-rule" originalName="ColdFusion: Avoid undocumented Functions" section="description">
+    <english>Functions should have comments</english>
+  </metric>
+  <metric id="2351440" type="quality-rule" originalName="ColdFusion: Avoid undocumented Functions" section="name">
+    <english>ColdFusion: Avoid undocumented Functions</english>
+  </metric>
+  <metric id="2351440" type="quality-rule" originalName="ColdFusion: Avoid undocumented Functions" section="rationale">
+    <english>Maintainability of the code is facilitated if there is documentation in the code. This rule will ensure there are comments within the Artifact</english>
+  </metric>
+  <metric id="2351440" type="quality-rule" originalName="ColdFusion: Avoid undocumented Functions" section="remediation">
+    <english>Enrich Artifact code with comments</english>
+  </metric>
+  <metric id="2351442" type="quality-rule" originalName="ColdFusion: Avoid Functions with a low comment/code ratio" section="description">
+    <english>Functions should be documented. This reports shows all the Functions with less than a defined comment / code ratio. This ratio is a parameter of the rule and can be changed at will.</english>
+  </metric>
+  <metric id="2351442" type="quality-rule" originalName="ColdFusion: Avoid Functions with a low comment/code ratio" section="name">
+    <english>ColdFusion: Avoid Functions with a low comment/code ratio</english>
+  </metric>
+  <metric id="2351442" type="quality-rule" originalName="ColdFusion: Avoid Functions with a low comment/code ratio" section="rationale">
+    <english>Maintainability of the code is facilitated if there is documentation in the code. This rule will ensure there are sufficient comments within the Artifact.</english>
+  </metric>
+  <metric id="2351442" type="quality-rule" originalName="ColdFusion: Avoid Functions with a low comment/code ratio" section="remediation">
+    <english>Enrich Artifact code with comments</english>
+  </metric>
+  <metric id="2351448" type="quality-rule" originalName="ColdFusion: Avoid undocumented Templates" section="description">
+    <english>Templates should have comments</english>
+  </metric>
+  <metric id="2351448" type="quality-rule" originalName="ColdFusion: Avoid undocumented Templates" section="name">
+    <english>ColdFusion: Avoid undocumented Templates</english>
+  </metric>
+  <metric id="2351448" type="quality-rule" originalName="ColdFusion: Avoid undocumented Templates" section="output">
+    <english>This report lists all Templates that are not documented.
+It provides the following information: Template full name</english>
+  </metric>
+  <metric id="2351448" type="quality-rule" originalName="ColdFusion: Avoid undocumented Templates" section="rationale">
+    <english>Maintainability of the code is facilitated if there is documentation in the code. This rule will ensure there are comments within the Artifact</english>
+  </metric>
+  <metric id="2351448" type="quality-rule" originalName="ColdFusion: Avoid undocumented Templates" section="remediation">
+    <english>Enrich Artifact code with comments</english>
+  </metric>
+  <metric id="2351448" type="quality-rule" originalName="ColdFusion: Avoid undocumented Templates" section="total">
+    <english>Number of Templates</english>
+  </metric>
+  <metric id="2351450" type="quality-rule" originalName="ColdFusion: Avoid Templates with a low comment/code ratio" section="description">
+    <english>Templates should be documented. This reports shows all the Templates with less than a defined comment / code ratio. This ratio is a parameter of the rule and can be changed at will.</english>
+  </metric>
+  <metric id="2351450" type="quality-rule" originalName="ColdFusion: Avoid Templates with a low comment/code ratio" section="name">
+    <english>ColdFusion: Avoid Templates with a low comment/code ratio</english>
+  </metric>
+  <metric id="2351450" type="quality-rule" originalName="ColdFusion: Avoid Templates with a low comment/code ratio" section="output">
+    <english>This report lists all Templates that have a low comment / code ratio.
+It provides the following information: Template full name, comment / code ratio</english>
+  </metric>
+  <metric id="2351450" type="quality-rule" originalName="ColdFusion: Avoid Templates with a low comment/code ratio" section="rationale">
+    <english>Maintainability of the code is facilitated if there is documentation in the code. This rule will ensure there are sufficient comments within the Artifact.</english>
+  </metric>
+  <metric id="2351450" type="quality-rule" originalName="ColdFusion: Avoid Templates with a low comment/code ratio" section="remediation">
+    <english>Enrich Artifact code with comments</english>
+  </metric>
+  <metric id="2351450" type="quality-rule" originalName="ColdFusion: Avoid Templates with a low comment/code ratio" section="total">
+    <english>Number of Templates</english>
+  </metric>
+  <metric id="2351482" type="quality-rule" originalName="ColdFusion: Avoid using cffile for file access" section="description">
+    <english>This rule report all us of  &lt;cffile&gt;, whatever the size of the file.</english>
+  </metric>
+  <metric id="2351482" type="quality-rule" originalName="ColdFusion: Avoid using cffile for file access" section="name">
+    <english>ColdFusion: Avoid using cffile for file access</english>
+  </metric>
+  <metric id="2351482" type="quality-rule" originalName="ColdFusion: Avoid using cffile for file access" section="output">
+    <english>This report lists all Templates that .use &lt;cffile&gt;.
+It provides the following information:
+- Template full name
+- Number of cffile</english>
+  </metric>
+  <metric id="2351482" type="quality-rule" originalName="ColdFusion: Avoid using cffile for file access" section="rationale">
+    <english>&lt;cffile&gt; is slow for large file access.</english>
+  </metric>
+  <metric id="2351482" type="quality-rule" originalName="ColdFusion: Avoid using cffile for file access" section="reference">
+    <english>http://stackoverflow.com/questions/1191131/common-programming-mistakes-for-coldfusion-programmer-to-avoid
+http://www.raymondcamden.com/index.cfm/2011/2/8/Comparing-different-ways-of-writing-out-large-amounts-of-data</english>
+  </metric>
+  <metric id="2351482" type="quality-rule" originalName="ColdFusion: Avoid using cffile for file access" section="remediation">
+    <english>Either use the new CF8 "File" functions or hand off the task to Java on CF6 &amp; 7.</english>
+  </metric>
+  <metric id="2351482" type="quality-rule" originalName="ColdFusion: Avoid using cffile for file access" section="total">
+    <english>Number of Templates</english>
+  </metric>
+  <metric id="2351540" type="quality-rule" originalName="ColdFusion: Avoid Queries with COUNT(*) statement" section="description">
+    <english>This metric retrieves the artifacts containing queries using the "SELECT *" statement.</english>
+  </metric>
+  <metric id="2351540" type="quality-rule" originalName="ColdFusion: Avoid Queries with COUNT(*) statement" section="name">
+    <english>ColdFusion: Avoid Queries with COUNT(*) statement</english>
+  </metric>
+  <metric id="2351540" type="quality-rule" originalName="ColdFusion: Avoid Queries with COUNT(*) statement" section="output">
+    <english>This report lists all "SELECT *" queries. It provides the following information: CFQueries full name</english>
+  </metric>
+  <metric id="2351540" type="quality-rule" originalName="ColdFusion: Avoid Queries with COUNT(*) statement" section="rationale">
+    <english>A query that retrieves all columns of a table with a SELECT * can potentially be the source of important performance problems: Such performance problems may arise when the execution of the query returns a large result sets (many row with all the columns may then become a huge amount of data to transport over the network). Thus optimzer module can't provide a correct execution. Also, when using such queries, one cannot control how the columns will be ordered and returned to the client. This can lead to important data inconsistencies and thus stability issues.</english>
+  </metric>
+  <metric id="2351540" type="quality-rule" originalName="ColdFusion: Avoid Queries with COUNT(*) statement" section="remediation">
+    <english>Review the design of the query to select only useful Columns</english>
+  </metric>
+  <metric id="2351540" type="quality-rule" originalName="ColdFusion: Avoid Queries with COUNT(*) statement" section="total">
+    <english>Number of CFQueries</english>
+  </metric>
+  <metric id="2351542" type="quality-rule" originalName="ColdFusion: Avoid Queries using JOINS  on more than 4 Tables" section="description">
+    <english>Queries with joins based on a large number of tables can cause performance problems.</english>
+  </metric>
+  <metric id="2351542" type="quality-rule" originalName="ColdFusion: Avoid Queries using JOINS  on more than 4 Tables" section="name">
+    <english>ColdFusion: Avoid Queries using JOINS  on more than 4 Tables</english>
+  </metric>
+  <metric id="2351542" type="quality-rule" originalName="ColdFusion: Avoid Queries using JOINS  on more than 4 Tables" section="output">
+    <english>This report lists all CFQueries with SQL statement using JOINS on more than 4 tables. It provides the following information: CFQueries full name</english>
+  </metric>
+  <metric id="2351542" type="quality-rule" originalName="ColdFusion: Avoid Queries using JOINS  on more than 4 Tables" section="total">
+    <english>Number of CFQueries</english>
+  </metric>
+  <metric id="2351544" type="quality-rule" originalName="ColdFusion: Avoid Queries using GROUP BY" section="description">
+    <english>Templates should not use GROUP BY clause in SQL statement</english>
+  </metric>
+  <metric id="2351544" type="quality-rule" originalName="ColdFusion: Avoid Queries using GROUP BY" section="name">
+    <english>ColdFusion: Avoid Queries using GROUP BY</english>
+  </metric>
+  <metric id="2351544" type="quality-rule" originalName="ColdFusion: Avoid Queries using GROUP BY" section="output">
+    <english>This report lists all CFQueries with SQL statement using GROUP BY clause. It provides the following information: CFQueries full name</english>
+  </metric>
+  <metric id="2351544" type="quality-rule" originalName="ColdFusion: Avoid Queries using GROUP BY" section="rationale">
+    <english>Having complex queries in artifacts can cause performance problems. Queries using GROUP BY is considered complex and not efficient.</english>
+  </metric>
+  <metric id="2351544" type="quality-rule" originalName="ColdFusion: Avoid Queries using GROUP BY" section="reference">
+    <english>CAST Consulting</english>
+  </metric>
+  <metric id="2351544" type="quality-rule" originalName="ColdFusion: Avoid Queries using GROUP BY" section="remediation">
+    <english>Review the design of the query to avoid if possible GROUP BY clause</english>
+  </metric>
+  <metric id="2351544" type="quality-rule" originalName="ColdFusion: Avoid Queries using GROUP BY" section="total">
+    <english>Number of CFQueries</english>
+  </metric>
+  <metric id="2351546" type="quality-rule" originalName="ColdFusion: Avoid Queries with SELECT * statement" section="description">
+    <english>Templates should not use SELECT * in SQL statement</english>
+  </metric>
+  <metric id="2351546" type="quality-rule" originalName="ColdFusion: Avoid Queries with SELECT * statement" section="name">
+    <english>ColdFusion: Avoid Queries with SELECT * statement</english>
+  </metric>
+  <metric id="2351546" type="quality-rule" originalName="ColdFusion: Avoid Queries with SELECT * statement" section="output">
+    <english>This report lists all "SELECT *" queries
+It provides the following information:  
+CFQueries full name</english>
+  </metric>
+  <metric id="2351546" type="quality-rule" originalName="ColdFusion: Avoid Queries with SELECT * statement" section="rationale">
+    <english>A query that retrieves all columns of a table with a SELECT * can potentially be the source of important performance problems:
+Such performance problems may arise when the execution of the query returns a large result sets (many row with all the columns may then become a huge amount of data to transport over the network).
+Thus optimzer module can't  provide a correct execution.
+Also, when using such queries, one cannot control how the columns will be ordered and returned to the client. This can lead to important data inconsistencies and thus stability issues.</english>
+  </metric>
+  <metric id="2351546" type="quality-rule" originalName="ColdFusion: Avoid Queries with SELECT * statement" section="remediation">
+    <english>Review the design of the query to select only useful Columns</english>
+  </metric>
+  <metric id="2351546" type="quality-rule" originalName="ColdFusion: Avoid Queries with SELECT * statement" section="total">
+    <english>Number of CFQueries</english>
+  </metric>
+  <metric id="2351548" type="quality-rule" originalName="ColdFusion: Avoid Queries with Subqueries" section="description">
+    <english>SQL Artifacts should not use SQL statement including Subqueries (at least subqueries should be avoided).</english>
+  </metric>
+  <metric id="2351548" type="quality-rule" originalName="ColdFusion: Avoid Queries with Subqueries" section="name">
+    <english>ColdFusion: Avoid Queries with Subqueries</english>
+  </metric>
+  <metric id="2351548" type="quality-rule" originalName="ColdFusion: Avoid Queries with Subqueries" section="output">
+    <english>This report lists all CFQueries with SQL statement including Subqueries. It provides the following information: CFQueries full name</english>
+  </metric>
+  <metric id="2351548" type="quality-rule" originalName="ColdFusion: Avoid Queries with Subqueries" section="rationale">
+    <english>Having complex queries in SQL Artifacts can cause performance problems. Queries with Subqueries are considered complex.</english>
+  </metric>
+  <metric id="2351548" type="quality-rule" originalName="ColdFusion: Avoid Queries with Subqueries" section="remediation">
+    <english>Review the design of the query to avoid if possible Subqueries</english>
+  </metric>
+  <metric id="2351548" type="quality-rule" originalName="ColdFusion: Avoid Queries with Subqueries" section="total">
+    <english>Number of CFQueries</english>
+  </metric>
+  <metric id="2351550" type="quality-rule" originalName="ColdFusion: Avoid Queries using NOT EXISTS" section="description">
+    <english>Templates should not use NOT EXIST clause in SQL statement</english>
+  </metric>
+  <metric id="2351550" type="quality-rule" originalName="ColdFusion: Avoid Queries using NOT EXISTS" section="name">
+    <english>ColdFusion: Avoid Queries using NOT EXISTS</english>
+  </metric>
+  <metric id="2351550" type="quality-rule" originalName="ColdFusion: Avoid Queries using NOT EXISTS" section="output">
+    <english>This report lists all CFQueries with SQL statement using NOT EXISTS clause. It provides the following information: CFQueries full name</english>
+  </metric>
+  <metric id="2351550" type="quality-rule" originalName="ColdFusion: Avoid Queries using NOT EXISTS" section="rationale">
+    <english>Having complex queries in artifacts can cause performance problems. Queries using NOT EXISTS is considered complex and not efficient.</english>
+  </metric>
+  <metric id="2351550" type="quality-rule" originalName="ColdFusion: Avoid Queries using NOT EXISTS" section="reference">
+    <english>http://sql-server-performance.com/Community/forums</english>
+  </metric>
+  <metric id="2351550" type="quality-rule" originalName="ColdFusion: Avoid Queries using NOT EXISTS" section="remediation">
+    <english>Review the design of the query to avoid if possible NOT IN clause. Consider using OUTER JOIN is test prove it is more efficient in performance and readability</english>
+  </metric>
+  <metric id="2351550" type="quality-rule" originalName="ColdFusion: Avoid Queries using NOT EXISTS" section="total">
+    <english>Number of CFQueries</english>
+  </metric>
+  <metric id="2351552" type="quality-rule" originalName="ColdFusion: Prefer UNION ALL to UNION" section="description">
+    <english>List all CFqueries using UNION (without ALL).</english>
+  </metric>
+  <metric id="2351552" type="quality-rule" originalName="ColdFusion: Prefer UNION ALL to UNION" section="name">
+    <english>ColdFusion: Prefer UNION ALL to UNION</english>
+  </metric>
+  <metric id="2351552" type="quality-rule" originalName="ColdFusion: Prefer UNION ALL to UNION" section="output">
+    <english>This report lists all CFQueries with SQL statement using UNION clause only.
+It provides the following information: CFQueries full name</english>
+  </metric>
+  <metric id="2351552" type="quality-rule" originalName="ColdFusion: Prefer UNION ALL to UNION" section="rationale">
+    <english>In SQL the UNION operator combines the results of two SQL queries into a single table of all matching rows. The two queries must have matching fields and data types in order to join them.   Any duplicate records are automatically removed unless UNION ALL is used.   The problem is that MOST of the time it is unecessary to remove duplicate as there are none and doing the search for duplicate rows can be very costly.</english>
+  </metric>
+  <metric id="2351552" type="quality-rule" originalName="ColdFusion: Prefer UNION ALL to UNION" section="reference">
+    <english>Standard suggestions based on CAST Quality Model</english>
+  </metric>
+  <metric id="2351552" type="quality-rule" originalName="ColdFusion: Prefer UNION ALL to UNION" section="remediation">
+    <english>Add the ALL after the union keyword (ensure that this does not change the returned data).</english>
+  </metric>
+  <metric id="2351552" type="quality-rule" originalName="ColdFusion: Prefer UNION ALL to UNION" section="remediationSample">
+    <english>select C1a, C2a
+from Table1
+union ALL                               // FIXED
+select C1b, C2b
+from Table2</english>
+  </metric>
+  <metric id="2351552" type="quality-rule" originalName="ColdFusion: Prefer UNION ALL to UNION" section="sample">
+    <english>select C1a, C2a
+from Table1
+union                             // VIOLATION
+select C1b, C2b
+from Table2
+
+-- The database server will read the values, sort them and eliminate duplicates. This is costly and likely to be useless.</english>
+  </metric>
+  <metric id="2351552" type="quality-rule" originalName="ColdFusion: Prefer UNION ALL to UNION" section="total">
+    <english>Number of CFQueries</english>
+  </metric>
+  <metric id="2351554" type="quality-rule" originalName="ColdFusion: Avoid  Queries using NOT IN" section="description">
+    <english>Templates should not use NOT IN clause in SQL statement</english>
+  </metric>
+  <metric id="2351554" type="quality-rule" originalName="ColdFusion: Avoid  Queries using NOT IN" section="name">
+    <english>ColdFusion: Avoid  Queries using NOT IN</english>
+  </metric>
+  <metric id="2351554" type="quality-rule" originalName="ColdFusion: Avoid  Queries using NOT IN" section="output">
+    <english>This report lists all CFQueries with SQL statement using NOT IN clause.
+It provides the following information:
+- CFQueries full name
+- Count of NOT IN</english>
+  </metric>
+  <metric id="2351554" type="quality-rule" originalName="ColdFusion: Avoid  Queries using NOT IN" section="rationale">
+    <english>Having complex queries in artifacts can cause performance problems. Queries using NOT IN is considered complex and not efficient.</english>
+  </metric>
+  <metric id="2351554" type="quality-rule" originalName="ColdFusion: Avoid  Queries using NOT IN" section="reference">
+    <english>http://sql-server-performance.com/Community/forums</english>
+  </metric>
+  <metric id="2351554" type="quality-rule" originalName="ColdFusion: Avoid  Queries using NOT IN" section="remediation">
+    <english>Review the design of the query to avoid if possible NOT IN clause. Consider using OUTER JOIN is test prove it is more efficient in performance and readability</english>
+  </metric>
+  <metric id="2351554" type="quality-rule" originalName="ColdFusion: Avoid  Queries using NOT IN" section="total">
+    <english>Number of CFQueries</english>
+  </metric>
+  <metric id="2351720" type="quality-rule" originalName="ColdFusion: Avoid Break in loops" section="name">
+    <english>ColdFusion: Avoid Break in loops</english>
+  </metric>
+  <metric id="2351720" type="quality-rule" originalName="ColdFusion: Avoid Break in loops" section="rationale">
+    <english>A FOR loop must be straightfoward to read. Using break statements in FOR loops makes them much more difficult to read.</english>
+  </metric>
+  <metric id="2351720" type="quality-rule" originalName="ColdFusion: Avoid Break in loops" section="total">
+    <english>Number of Templates</english>
+  </metric>
+  <metric id="2351860" type="quality-rule" originalName="ColdFusion: Avoid Templates with more than X Functions" section="description">
+    <english>Templates should have less than X Functions The threshold is a parameter and can be changed at will.</english>
+  </metric>
+  <metric id="2351860" type="quality-rule" originalName="ColdFusion: Avoid Templates with more than X Functions" section="name">
+    <english>ColdFusion: Avoid Templates with more than X Functions</english>
+  </metric>
+  <metric id="2351860" type="quality-rule" originalName="ColdFusion: Avoid Templates with more than X Functions" section="output">
+    <english>This report lists all the Templates having more than X Functions.
+It provides the following information:
+- Template full name
+- Number of Functions</english>
+  </metric>
+  <metric id="2351860" type="quality-rule" originalName="ColdFusion: Avoid Templates with more than X Functions" section="rationale">
+    <english>For maintainability and readability reasons, Templates should not have too many Functions</english>
+  </metric>
+  <metric id="2351860" type="quality-rule" originalName="ColdFusion: Avoid Templates with more than X Functions" section="remediation">
+    <english>Review the Template design to reduce the number of Functions</english>
+  </metric>
+  <metric id="2351860" type="quality-rule" originalName="ColdFusion: Avoid Templates with more than X Functions" section="total">
+    <english>Number of Templates</english>
+  </metric>
+  <metric id="2351880" type="quality-rule" originalName="ColdFusion: Avoid Functions with more then XX Lines of Code" section="description">
+    <english>Functions should not have more than X lines of code. The threshold is a parameter and can be changed at will.</english>
+  </metric>
+  <metric id="2351880" type="quality-rule" originalName="ColdFusion: Avoid Functions with more then XX Lines of Code" section="name">
+    <english>ColdFusion: Avoid Functions with more then XX Lines of Code</english>
+  </metric>
+  <metric id="2351880" type="quality-rule" originalName="ColdFusion: Avoid Functions with more then XX Lines of Code" section="output">
+    <english>This report lists all Functions with more than X lines of code.
+It provides the following information:
+- Function full name
+- Number of lines of code</english>
+  </metric>
+  <metric id="2351880" type="quality-rule" originalName="ColdFusion: Avoid Functions with more then XX Lines of Code" section="rationale">
+    <english>Large Functions are more difficult to understand, and are a sign of a bad modularity of the code</english>
+  </metric>
+  <metric id="2351880" type="quality-rule" originalName="ColdFusion: Avoid Functions with more then XX Lines of Code" section="remediation">
+    <english>Review the design of the Function to reduce its size</english>
+  </metric>
+  <metric id="2351880" type="quality-rule" originalName="ColdFusion: Avoid Functions with more then XX Lines of Code" section="total">
+    <english>Number of Functions</english>
+  </metric>
+  <metric id="2351884" type="quality-rule" originalName="ColdFusion: Avoid Templates with more then XX Lines of Code" section="description">
+    <english>Templates should not have more than X lines of code. The threshold is a parameter and can be changed at will.</english>
+  </metric>
+  <metric id="2351884" type="quality-rule" originalName="ColdFusion: Avoid Templates with more then XX Lines of Code" section="name">
+    <english>ColdFusion: Avoid Templates with more then XX Lines of Code</english>
+  </metric>
+  <metric id="2351884" type="quality-rule" originalName="ColdFusion: Avoid Templates with more then XX Lines of Code" section="output">
+    <english>This report lists all Template with more than X lines of code.
+It provides the following information:
+- Template full name
+- Number of lines of code</english>
+  </metric>
+  <metric id="2351884" type="quality-rule" originalName="ColdFusion: Avoid Templates with more then XX Lines of Code" section="rationale">
+    <english>Large Templates are more difficult to understand, and are a sign of a bad modularity of the code</english>
+  </metric>
+  <metric id="2351884" type="quality-rule" originalName="ColdFusion: Avoid Templates with more then XX Lines of Code" section="remediation">
+    <english>Review the design of the Template to reduce its size</english>
+  </metric>
+  <metric id="2351884" type="quality-rule" originalName="ColdFusion: Avoid Templates with more then XX Lines of Code" section="total">
+    <english>Number of Templates</english>
+  </metric>
+  
+  
+  <metric id="2351460" type="quality-rule" originalName="ColdFusion: Avoid using SQL queries inside a loop" section="total">
+    <english>ColdFusion: Avoid using SQL queries inside a loop</english>
+  </metric>
+   <metric id="2351460" type="quality-rule" originalName="ColdFusion: Avoid using SQL queries inside a loop" section="total">
+    <english>Having an SQL query inside a loop is usually the source of performance and scalability problems especially if the number of iterations become very high (for example if it is dependent on the data returned from the database). This iterative pattern has proved to be very dangerous for application performance and scalability. Database servers handle in a much better set-oriented pattern rather than pure iterative ones.</english>
+  </metric>
+   <metric id="2351460" type="quality-rule" originalName="ColdFusion: Avoid using SQL queries inside a loop" section="total">
+    <english>This rule retrieves all templates using at least one SQL query (cfquery) inside a cfloop.</english>
+  </metric>
+   <metric id="2351460" type="quality-rule" originalName="ColdFusion: Avoid using SQL queries inside a loop" section="total">
+    <english>The remediation is often to replace the iterative approach based on a loop with a set-oriented one and thus modify the query.</english>
+  </metric>
+  <metric id="2351460" type="quality-rule" originalName="ColdFusion: Avoid using SQL queries inside a loop" section="total">
+   <english>This report lists all Templates that have SQL queries inside loops.
+It provides the following information: Template full name
+ Number of loops having a SQL query</english>
+  </metric>  
+  <metric id="2351460" type="quality-rule" originalName="ColdFusion: Avoid using SQL queries inside a loop" section="total">
+   <english>Number of Templates</english>
+  </metric>
+  
+  <metric id="2351462" type="quality-rule" originalName="ColdFusion: Avoid instanciation in loop" section="total">
+   <english>ColdFusion: Avoid instanciation in loop</english>
+  </metric>
+  <metric id="2351462" type="quality-rule" originalName="ColdFusion: Avoid instanciation in loop" section="total">
+   <english>One of the fundamental OO performance management principles is this: Avoid excessive object creation. This doesn't mean that you should give up the benefits of object-oriented programming by not creating any objects, but you should be wary of object creation inside of tight loops when executing performance-critical code. Object creation is expensive enough that you should avoid unnecessarily creating temporary or intermediate objects in situations where performance is an issue.</english>
+  </metric>
+  <metric id="2351462" type="quality-rule" originalName="ColdFusion: Avoid instanciation in loop" section="total">
+   <english>Reports all templates with loops (for, while, do while) that contain object instantiations (object creation).</english>
+  </metric>
+  <metric id="2351462" type="quality-rule" originalName="ColdFusion: Avoid instanciation in loop" section="total">
+   <english>Whenever possible, redesign the loop.</english>
+  </metric>
+  <metric id="2351462" type="quality-rule" originalName="ColdFusion: Avoid instanciation in loop" section="total">
+   <english>http://www.bennadel.com/blog/737-How-ColdFusion-CreateObject-Really-Works-With-Java-Objects.htm</english>
+  </metric>
+  <metric id="2351462" type="quality-rule" originalName="ColdFusion: Avoid instanciation in loop" section="total">
+   <english>This report lists all Templates that instanciate objects inside loops.
+It provides the following information: 
+- Template full name
+- Number of loops having an object creation</english>
+  </metric>
+  <metric id="2351462" type="quality-rule" originalName="ColdFusion: Avoid instanciation in loop" section="total">
+   <english>Number of Templates</english>
+  </metric>
+  
+  
+</root>

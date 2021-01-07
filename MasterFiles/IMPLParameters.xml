@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <metric id="7124" type="quality-rule" originalName="Functional Evolvability" parameterName="Minimum Functional Evolvability" parameterType="integer" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="N/A">
+    <defaultValue>50</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="10201" type="sizing-measure" originalName="Backfired Function Points" parameterName="BackFired FP ratio" parameterType="float" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="N/A">
+    <defaultValue>60.0</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="65105" type="quality-distribution" originalName="Size Distribution" parameterName="Average Size Threshold" parameterType="float" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="N/A">
+    <defaultValue>100.0</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="65105" type="quality-distribution" originalName="Size Distribution" parameterName="Large Size Threshold" parameterType="float" parameterIndex="2" filter="2351000" filterLabel="ColdFusion" parameterDescription="N/A">
+    <defaultValue>500.0</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="65105" type="quality-distribution" originalName="Size Distribution" parameterName="Very Large Size Threshold" parameterType="float" parameterIndex="3" filter="2351000" filterLabel="ColdFusion" parameterDescription="N/A">
+    <defaultValue>1000.0</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="65350" type="quality-distribution" originalName="Coupling Distribution" parameterName="Average Coupling Artifacts Threshold" parameterType="float" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="N/A">
+    <defaultValue>4.0</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="65350" type="quality-distribution" originalName="Coupling Distribution" parameterName="High Coupling Artifacts Threshold" parameterType="float" parameterIndex="2" filter="2351000" filterLabel="ColdFusion" parameterDescription="N/A">
+    <defaultValue>10.0</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="65350" type="quality-distribution" originalName="Coupling Distribution" parameterName="Very High Coupling Artifacts Threshold" parameterType="float" parameterIndex="3" filter="2351000" filterLabel="ColdFusion" parameterDescription="N/A">
+    <defaultValue>30.0</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="65501" type="quality-distribution" originalName="Cyclomatic Complexity Distribution" parameterName="Average Complexity Artifact Threshold" parameterType="float" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="N/A">
+    <defaultValue>5.0</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="65501" type="quality-distribution" originalName="Cyclomatic Complexity Distribution" parameterName="High Complexity Artifact Threshold" parameterType="float" parameterIndex="2" filter="2351000" filterLabel="ColdFusion" parameterDescription="N/A">
+    <defaultValue>15.0</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="65501" type="quality-distribution" originalName="Cyclomatic Complexity Distribution" parameterName="Very High Complexity Artifact Threshold" parameterType="float" parameterIndex="3" filter="2351000" filterLabel="ColdFusion" parameterDescription="N/A">
+    <defaultValue>30.0</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="66010" type="quality-distribution" originalName="Reuse by Call Distribution" parameterName="Average Reuse Threshold" parameterType="float" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="N/A">
+    <defaultValue>4.0</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="66010" type="quality-distribution" originalName="Reuse by Call Distribution" parameterName="High Reuse Threshold" parameterType="float" parameterIndex="2" filter="2351000" filterLabel="ColdFusion" parameterDescription="N/A">
+    <defaultValue>10.0</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="66010" type="quality-distribution" originalName="Reuse by Call Distribution" parameterName="Very High Reuse Threshold" parameterType="float" parameterIndex="3" filter="2351000" filterLabel="ColdFusion" parameterDescription="N/A">
+    <defaultValue>50.0</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="2351120" type="quality-rule" originalName="ColdFusion: Avoid Functions with a high Fan-out" parameterName="Max Fan-out" parameterType="integer" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="Max Fan-out">
+    <defaultValue>5</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="2351122" type="quality-rule" originalName="ColdFusion: Avoid Functions with a high Fan-in" parameterName="Max Fan-in" parameterType="integer" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="Max Fan-in">
+    <defaultValue>5</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="2351128" type="quality-rule" originalName="ColdFusion: Avoid Templates with a high Fan-out" parameterName="Max Fan-out" parameterType="integer" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="Max Fan-out">
+    <defaultValue>5</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="2351130" type="quality-rule" originalName="ColdFusion: Avoid Templates with a high Fan-in" parameterName="Max Fan-in" parameterType="integer" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="Max Fan-in">
+    <defaultValue>5</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="2351180" type="quality-rule" originalName="ColdFusion: Avoid Functions with high Cyclomatic Complexity" parameterName="Max CC" parameterType="integer" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="Max CC">
+    <defaultValue>10</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="2351184" type="quality-rule" originalName="ColdFusion: Avoid Templates with high Cyclomatic Complexity" parameterName="Max CC" parameterType="integer" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="Max CC">
+    <defaultValue>70</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="2351382" type="quality-rule" originalName="ColdFusion: Naming convention on Function" parameterName="Prefix" parameterType="text" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="Prefix">
+    <defaultValue>Func_</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="2351384" type="quality-rule" originalName="ColdFusion: Naming convention on Query" parameterName="Prefix" parameterType="text" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="Prefix">
+    <defaultValue>qry</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="2351386" type="quality-rule" originalName="ColdFusion: Naming convention on Template" parameterName="Prefix" parameterType="text" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="Prefix">
+    <defaultValue>Tmpl_</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="2351442" type="quality-rule" originalName="ColdFusion: Avoid Functions with a low comment/code ratio" parameterName="Min percent" parameterType="integer" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="Min percent">
+    <defaultValue>10</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="2351450" type="quality-rule" originalName="ColdFusion: Avoid Templates with a low comment/code ratio" parameterName="Min percent" parameterType="integer" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="Min percent">
+    <defaultValue>10</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="2351860" type="quality-rule" originalName="ColdFusion: Avoid Templates with more than X Functions" parameterName="Max Nb Functions" parameterType="integer" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="Maximum Number Functions">
+    <defaultValue>10</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  
+  <metric id="2351880" type="quality-rule" originalName="ColdFusion: Avoid Functions with more then XX Lines of Code" parameterName="Max LOC" parameterType="integer" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="Max LOC">
+    <defaultValue>50</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="2351884" type="quality-rule" originalName="ColdFusion: Avoid Templates with more then XX Lines of Code" parameterName="Max LOC" parameterType="integer" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="Max LOC">
+    <defaultValue>500</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  
+   <metric id="2351460" type="quality-rule" originalName="ColdFusion: Avoid using SQL queries inside a loop" parameterName="Max LOC" parameterType="integer" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="Max LOC">
+    <defaultValue>50</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  
+  <metric id="2351462" type="quality-rule" originalName="ColdFusion: Avoid instanciation in loop" parameterName="Max LOC" parameterType="integer" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="Max LOC">
+    <defaultValue>500</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  
+  
+</root>

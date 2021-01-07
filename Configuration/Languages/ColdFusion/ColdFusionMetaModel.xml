@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<metaModel file_level="client" file_no="351">
+
+    
+    <category name="APM ColdFusion Module" rid="0">
+        <description>ColdFusion</description>
+        <inheritedCategory name="APM Client Modules" />
+    </category>
+    <category name="APM ColdFusion Artifacts" rid="1">
+        <description>ColdFusion Artifacts</description>
+       <inheritedCategory name="APM Client Language Artifacts"/>
+    </category>
+    
+   <type name="EnlightenColdFusion" rid="900">
+        <description>ColdFusion</description>
+        <tree parent="EnlightenUniversalObjects" category="EnlightenTree" />
+    </type>
+	
+	<category name="ColdFusion" rid="2">
+		<description>ColdFusion</description>
+		<attribute name="extensions" stringValue="*.cfm;*.cfml;*.cfc"/>
+		<inheritedCategory name="UniversalLanguage"/>
+		<inheritedCategory name="CsvLanguage"/>
+	</category> 
+	
+	<type name="ColdFusion_SUBSET" rid="400">
+		<description>ColdFusion Subset</description>
+		<inheritedCategory name="PROJECT_SUBSET"/>
+		<inheritedCategory name="ColdFusion"/>
+		<inheritedCategory name="APM ColdFusion Module"/>
+    </type>
+	
+    <type name="ColdFusionProject" rid="3">
+		<description>ColdFusion Project</description>
+		<inheritedCategory name="UAProject"/>
+		<inheritedCategory name="ColdFusion"/>
+		<inheritedCategory name="APM ColdFusion Module"/>
+	</type>
+
+    <!-- Define the new UA 'language'
+            for all the platform (cms analyzer)
+    -->
+    
+           <!-- ColdFusion project -->
+    
+	
+	<type name="CFComponent" rid="12">
+		<description>ColdFusion Component</description>
+		<inheritedCategory name="UAObject"/>
+		<inheritedCategory name="ColdFusion"/>
+		<inheritedCategory name="APM ColdFusion Artifacts"/>
+		<inheritedCategory name="METRICABLE"/>
+		<inheritedCategory name="ESQLSearchable"/>
+		<inheritedCategory name="caseInsensitive"/>
+		<tree parent="EnlightenUniversalObjects" category="EnlightenTree" />
+	</type>
+	
+	<type name="CFTemplate" rid="4">
+		<description>ColdFusion Template</description>
+		<inheritedCategory name="UAObject"/>
+		<inheritedCategory name="caseInsensitive"/>
+		<inheritedCategory name="ColdFusion"/>
+		<inheritedCategory name="APM ColdFusion Artifacts"/>
+		<inheritedCategory name="METRICABLE"/>
+		<tree parent="EnlightenColdFusion" category="EnlightenTree"/>
+	</type>
+	
+	<type name="CFMail" rid="15">
+		<description>ColdFusion Mail</description>
+		<inheritedCategory name="UAObject"/>
+		<inheritedCategory name="caseInsensitive"/>
+		<inheritedCategory name="ColdFusion"/>
+		<inheritedCategory name="APM ColdFusion Artifacts"/>
+		<inheritedCategory name="METRICABLE"/>
+		<tree parent="EnlightenColdFusion" category="EnlightenTree"/>
+    </type>
+    
+    <type name="CFQuery" rid="5">
+		<description>ColdFusion Query</description>
+		<inheritedCategory name="CAST_SQL_MetricableQuery"/>
+		<inheritedCategory name="UAObject"/>
+		<inheritedCategory name="caseInsensitive"/>
+		<inheritedCategory name="ColdFusion"/>
+		<inheritedCategory name="APM ColdFusion Artifacts"/>
+		<inheritedCategory name="ESQLSearchable"/>
+		<inheritedCategory name="APM Inventory Functions"/>
+		<inheritedCategory name="METRICABLE"/>
+		<tree parent="EnlightenColdFusion" category="EnlightenTree"/>
+	</type>
+	
+	<type name="CFInvoke" rid="6">
+		<description>ColdFusion Invoke</description>
+		<inheritedCategory name="UAObject"/>
+		<inheritedCategory name="caseInsensitive"/>
+		<inheritedCategory name="ColdFusion"/>
+		<inheritedCategory name="APM ColdFusion Artifacts"/>
+		<inheritedCategory name="METRICABLE"/>
+		<inheritedCategory name="CFInvokeProperties"/>
+		
+		<tree parent="EnlightenColdFusion" category="EnlightenTree"/>
+    </type>
+    
+	<category name="CFInvokeProperties" rid="16">
+        <description>Custom properties for Screen Objects</description>
+        <property name="InvokeWebserviceName" type="string" rid="17">
+            <description>InvokeWebserviceName</description>
+            <attribute name="INF_TYPE" intValue="2351000"/>
+            <attribute name="INF_SUB_TYPE" intValue="1"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+      	</property>
+      	<property name="InvokeMethodName" type="string" rid="18">
+            <description>InvokeMethodName</description>
+            <attribute name="INF_TYPE" intValue="2351001"/>
+            <attribute name="INF_SUB_TYPE" intValue="1"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+      	</property>
+      	<property name="WebService" type="string" rid="19">
+            <description>InvokeMethodName</description>
+            <attribute name="INF_TYPE" intValue="2351002"/>
+            <attribute name="INF_SUB_TYPE" intValue="1"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+      	</property>
+	</category>
+	   
+    <type name="CFFile" rid="7">
+		<description>ColdFusion File</description>
+		<inheritedCategory name="UAObject"/>
+		<inheritedCategory name="caseInsensitive"/>
+		<inheritedCategory name="ColdFusion"/>
+		<inheritedCategory name="APM ColdFusion Artifacts"/>
+		<inheritedCategory name="METRICABLE"/>
+		<tree parent="EnlightenColdFusion" category="EnlightenTree"/>
+    </type>
+    
+    <type name="CFFTP" rid="8">
+		<description>ColdFusion FTP</description>
+		<inheritedCategory name="UAObject"/>
+		<inheritedCategory name="caseInsensitive"/>
+		<inheritedCategory name="ColdFusion"/>
+		<inheritedCategory name="APM ColdFusion Artifacts"/>
+		<inheritedCategory name="METRICABLE"/>
+		<tree parent="EnlightenColdFusion" category="EnlightenTree"/>
+    </type>
+    
+    <type name="CFHttp" rid="9">
+		<description>ColdFusion Http</description>
+		<inheritedCategory name="UAObject"/>
+		<inheritedCategory name="caseInsensitive"/>
+		<inheritedCategory name="ColdFusion"/>
+		<inheritedCategory name="APM ColdFusion Artifacts"/>
+		<inheritedCategory name="METRICABLE"/>
+		<tree parent="EnlightenColdFusion" category="EnlightenTree"/>
+    </type>
+    
+    <type name="CFFunction" rid="10">
+		<description>ColdFusion Function</description>
+		<inheritedCategory name="UAObject"/>
+		<inheritedCategory name="caseInsensitive"/>
+		<inheritedCategory name="ColdFusion"/>
+		<inheritedCategory name="APM ColdFusion Artifacts"/>
+		<inheritedCategory name="METRICABLE"/>
+		<tree parent="EnlightenColdFusion" category="EnlightenTree"/>
+    </type>
+    
+    <type name="CFWebService" rid="11">
+		<description>ColdFusion WebService</description>
+		<inheritedCategory name="UAObject"/>
+		<inheritedCategory name="caseInsensitive"/>
+		<inheritedCategory name="ColdFusion"/>
+		<inheritedCategory name="APM ColdFusion Artifacts"/>
+		<inheritedCategory name="METRICABLE"/>
+		<tree parent="EnlightenColdFusion" category="EnlightenTree"/>
+    </type>
+    
+    <type name="ColdFusion_CFC" rid="20">
+		<description>ColdFusion CFC</description>
+		<inheritedCategory name="UAObject"/>
+		<inheritedCategory name="ColdFusion"/>
+		<inheritedCategory name="APM ColdFusion Artifacts"/>
+		<inheritedCategory name="METRICABLE"/>
+		<inheritedCategory name="ESQLSearchable"/>
+		<inheritedCategory name="caseInsensitive"/>
+		<tree parent="EnlightenUniversalObjects" category="EnlightenTree" />
+	</type>
+	
+	<type name="ColdFusion_CFM" rid="21">
+		<description>ColdFusion CFM</description>
+		<inheritedCategory name="UAObject"/>
+		<inheritedCategory name="ColdFusion"/>
+		<inheritedCategory name="APM ColdFusion Artifacts"/>
+		<inheritedCategory name="METRICABLE"/>
+		<inheritedCategory name="ESQLSearchable"/>
+		<inheritedCategory name="caseInsensitive"/>
+		<tree parent="EnlightenUniversalObjects" category="EnlightenTree" />
+	</type>
+    	
+</metaModel>

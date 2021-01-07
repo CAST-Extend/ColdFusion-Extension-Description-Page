@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<languagePattern id="ColdFusion">
+
+
+ 	<comment>
+		  <begin><![CDATA[[\/][\/]]]></begin>
+		  <end><![CDATA[\r\n]]></end>
+		  <nested>false</nested>
+		  <multiline>false</multiline>
+ 	</comment>
+ 	<comment>
+		  <begin><![CDATA[[<][!][-][-]]]></begin>
+		  <end><![CDATA[[-][-][>]]]></end>
+		  <nested>false</nested>
+		  <multiline>true</multiline>
+ 	</comment>
+
+	<!--Added for Copy-Paste enablement-->
+    <identifier><![CDATA[([[:alpha:]]|"_")([[:digit:]]|[[:alpha:]]|"_"|"@")*]]></identifier>
+    <keyword>cfif</keyword>
+    <keyword>cfelse</keyword>
+	<keyword>cfset</keyword>
+    <keyword>cfloop</keyword>
+	<keyword>cfquery</keyword>
+    <!--End added for Copy-Paste enablement-->
+
+
+	<types>
+
+		<CFTemplate>
+			<header>
+				<pattern><![CDATA[BEGIN_TEMPLATE[(]]]></pattern>
+			</header>
+			<identification.name>	
+				<pattern><![CDATA[BEGIN_TEMPLATE[(]]]></pattern>
+				<value><![CDATA[[[:alpha:][:digit:]_]+]]></value>
+			</identification.name>
+			<body>
+				<begin><![CDATA[[\r\n]]]></begin>
+				<end><![CDATA[END_TEMPLATE]]></end>
+				<nested>false</nested>
+			</body>
+			
+		</CFTemplate>
+		
+		<CFScript>
+			<header>
+				<pattern><![CDATA[[<][cC][fF][sS][cC][rR][iI][pP][tT]]]></pattern>
+			</header>
+			<identification.name>	
+				<pattern><![CDATA[[<]]]></pattern>
+				<value><![CDATA[[[:alpha:][:digit:]_]+]]></value>
+			</identification.name>
+			<body>
+				<begin><![CDATA[[>]]]></begin>
+				<end><![CDATA[[<][\/][cC][fF][sS][cC][rR][iI][pP][tT][>]]]></end>
+				<nested>false</nested>
+			</body>
+		</CFScript>
+
+		<CFFunction>
+			<header>
+				<pattern><![CDATA[[\<][[:blank:]]*[cC][fF][fF][uU][nN][cC][tT][iI][oO][nN][[:alpha:][:digit:]\"=_[:blank:]\r\n\(\)\.\\\/]+[\>]]]></pattern>
+			</header>
+			<identification.name>	
+				<pattern><![CDATA[[nN][aA][mM][eE][=][\"]*]]></pattern>
+				<value><![CDATA[[[:alpha:][:digit:]_]+]]></value>
+			</identification.name>
+			<body>
+				<begin><![CDATA[[\r\n]]]></begin>
+				
+				<end><![CDATA[[\<][[:blank:]]*[/][[:blank:]]*[cC][fF][fF][uU][nN][cC][tT][iI][oO][nN][[:blank:]]*[\>]]]></end>
+				<nested>false</nested>
+			</body>
+		</CFFunction>
+		
+		<JFunction>
+			<header>
+				<pattern><![CDATA[^[[:blank:]]*[fF][uU][nN][cC][tT][iI][oO][nN]]]></pattern>
+			</header>
+			<identification.name>	
+				<pattern><![CDATA[^[[:blank:]]*[fF][uU][nN][cC][tT][iI][oO][nN][[:blank:]]+]]></pattern>
+				<value><![CDATA[[[:alpha:][:digit:]_]+]]></value>
+			</identification.name>
+			<body>
+				<begin><![CDATA[\{]]></begin>
+				<end><![CDATA[\}]]></end>
+				<nested>true</nested>
+			</body>
+		</JFunction>
+		
+		<CFQuery>
+			<header>
+				<pattern><![CDATA[[\<][[:blank:]]*[cC][fF][qQ][uU][eE][rR][yY][[:blank:]][[:alpha:][:digit:]_#="\. ]+]]></pattern>
+			</header>
+			<identification.name>	
+				<pattern><![CDATA[[nN][aA][mM][eE][\=][\"]]]></pattern>
+				<value><![CDATA[[[:alpha:][:digit:]_]+]]></value>
+			</identification.name>
+			<body>
+				<begin><![CDATA[[>]]]></begin>
+				<end><![CDATA[[\<][\/][cC][fF][qQ][uU][eE][rR][yY][>]]]></end>
+				<nested>false</nested>
+			</body>
+		</CFQuery>
+		
+		<CFStoredProc>
+			<header>
+				<pattern><![CDATA[[\<][[:blank:]]*[cC][fF][sS][tT][oO][rR][eE][dD][pP][rR][oO][cC][[:blank:]][pP][rR][oO][cC][eE][dD][uU][rR][eE][\=][\"]]]></pattern>
+			</header>
+			<identification.name>	
+				<pattern><![CDATA[[\<][[:blank:]]*[cC][fF][sS][tT][oO][rR][eE][dD][pP][rR][oO][cC][[:blank:]][pP][rR][oO][cC][eE][dD][uU][rR][eE][\=][\"]]]></pattern>
+				<value><![CDATA[[[:alpha:][:digit:]_.]+]]></value>
+			</identification.name>
+			<body>
+				<begin><![CDATA[[>]]]></begin>
+				<end><![CDATA[[\<][\/][cC][fF][sS][tT][oO][rR][eE][dD][pP][rR][oO][cC][>]]]></end>
+				<nested>false</nested>
+			</body>
+		</CFStoredProc>
+		
+		<CFIf>
+			<header>
+				<pattern><![CDATA[[\<][[:blank:]]*[cC][fF][iI][fF][[:blank:]][[:alpha:][:digit:]_#="\.\(\)\t\,\$\'[:blank:]]+]]></pattern>
+			</header>
+			<identification.name>	
+				<pattern><![CDATA[[\<][[:blank:]]*[cC][fF][iI][fF]([[:blank:]][nN][oO][tT])*[[:blank:]]]]></pattern>
+				<value><![CDATA[[[:alpha:][:digit:]_#="\.\(\)[:blank:]]+]]></value>
+			</identification.name>
+			<body>
+				<begin><![CDATA[[>]]]></begin>
+				<end><![CDATA[[\<][\/][cC][fF][iI][fF][\>]]]></end>
+				<nested>false</nested>
+			</body>
+		</CFIf>
+		
+		<CFTransaction>
+			<header>
+				<pattern><![CDATA[[<][cC][fF][tT][rR][aA][nN][sS][aA][cC][tT][iI][oO][nN]]]></pattern>
+			</header>
+			<identification.name>	
+				<pattern><![CDATA[[<]]]></pattern>
+				<value><![CDATA[[[:alpha:][:digit:]_]+]]></value>
+			</identification.name>
+			<body>
+				<begin><![CDATA[[>]]]></begin>
+				<end><![CDATA[[<][\/][cC][fF][tT][rR][aA][nN][sS][aA][cC][tT][iI][oO][nN][>]]]></end>
+				<nested>false</nested>
+			</body>
+		</CFTransaction>
+		
+		<CFComponent>
+			<header>
+				<pattern><![CDATA[[bB][eE][gG][iI][nN][_][cC][oO][mM][pP][oO][nN][eE][nN][tT][[:blank:]]*[\(]]]></pattern>
+			</header>
+			<identification.name>	
+				<pattern><![CDATA[[bB][eE][gG][iI][nN][_][cC][oO][mM][pP][oO][nN][eE][nN][tT][\(]]]></pattern>
+				<value><![CDATA[[[:alpha:][:digit:]_]+]]></value>
+			</identification.name>
+			<body>
+				<begin><![CDATA[[\r\n]]]></begin>
+				<end><![CDATA[[eE][nN][dD][_][cC][oO][mM][pP][oO][nN][eE][nN][tT]]]></end>
+				<nested>false</nested>
+			</body>
+		</CFComponent>
+		
+		<CFForm>
+			<header>
+				<pattern><![CDATA[[\<][[:blank:]]*[cC][fF][fF][oO][rR][mM][[:blank:]][[:alpha:][:digit:]_#="\.[:blank:]]+]]></pattern>
+			</header>
+			<identification.name>	
+				<pattern><![CDATA[[nN][aA][mM][eE][\=][\"]]]></pattern>
+				<value><![CDATA[[[:alpha:][:digit:]_]+]]></value>
+			</identification.name>
+			<body>
+				<begin><![CDATA[[>]]]></begin>
+				<end><![CDATA[[\<][\/][cC][fF][fF][oO][rR][mM][>]]]></end>
+				<nested>false</nested>
+			</body>
+		</CFForm>
+		
+		<CFExecute>
+			<header>
+				<pattern><![CDATA[[\<][[:blank:]]*[cC][fF][eE][xX][eE][cC][uU][tT][eE][[:blank:]][[:alpha:][:digit:]_#="\.[:blank:]]+]]></pattern>
+			</header>
+			<identification.name>	
+				<pattern><![CDATA[[nN][aA][mM][eE][\=][\"]]]></pattern>
+				<value><![CDATA[[[:alpha:][:digit:]_\#]+]]></value>
+			</identification.name>
+			<body>
+				<begin><![CDATA[[>]]]></begin>
+				<end><![CDATA[[\<][\/][cC][fF][eE][xX][eE][cC][uU][tT][eE][>]]]></end>
+				<nested>false</nested>
+			</body>
+		</CFExecute>
+		
+		<CFMail>
+			<header>
+				<pattern><![CDATA[[\<][[:blank:]]*[cC][fF][mM][aA][iI][lL][[:blank:]][[:alpha:][:digit:]_#="\.[:blank:]]+]]></pattern>
+			</header>
+			<identification.name>	
+				<pattern><![CDATA[[nN][aA][mM][eE][\=][\"]]]></pattern>
+				<value><![CDATA[[[:alpha:][:digit:]_\#]+]]></value>
+			</identification.name>
+			<body>
+				<begin><![CDATA[[>]]]></begin>
+				<end><![CDATA[[\<][\/][cC][fF][mM][aA][iI][lL][>]]]></end>
+				<nested>false</nested>
+			</body>
+		</CFMail>
+		
+		<CFFuseAction>
+			<header>
+				<pattern><![CDATA[[\<][[:blank:]]*fuseaction[[:blank:]][[:alpha:][:digit:]_#="\.[:blank:]]+]]></pattern>
+			</header>
+			<identification.name>	
+				<pattern><![CDATA[[nN][aA][mM][eE][\=][\"]]]></pattern>
+				<value><![CDATA[[[:alpha:][:digit:]_\#]+]]></value>
+			</identification.name>
+			<body>
+				<begin><![CDATA[[>]]]></begin>
+				<end><![CDATA[[\<][\/]fuseaction[>]]]></end>
+				<nested>false</nested>
+			</body>
+		</CFFuseAction>
+		
+</types>
+
+	<links>
+				<callLink>
+						<pattern><![CDATA[[[:alpha:][:digit:]_]+(@A=([[:blank:]]*[(]))$$$(@A)]]></pattern>
+						<callee><![CDATA[[[:alpha:][:digit:]_]+]]><backward/></callee>
+				</callLink>
+				<callLink>
+                        <pattern><![CDATA[methodcall[[:blank:]]*[=][[:blank:]]["]]]></pattern>
+                        <callee><![CDATA[[[:alpha:][:digit:]_]+]]></callee>
+                </callLink>
+				<callGotoLink>
+						<pattern><![CDATA[cfinvoke[[:blank:]]+component[[:blank:]]*[=][\"][[:alpha:][:digit:][:blank:]\_]+[\"][[:blank:]]*method[[:blank:]]*[=][[:blank:]]*[\"]]]></pattern>
+						<callee><![CDATA[[[:alpha:][:digit:]_]+]]></callee>
+				</callGotoLink>
+				
+				<!-- Include Links -->
+				<includeLink>
+						<pattern><![CDATA[(@A=([\/]))[[:alpha:][:digit:]_.]+["]$$$(@A)]]></pattern>
+						<callee><![CDATA[[[:alpha:][:digit:]_.]+]]></callee>
+				</includeLink>
+				<referLink>
+						<pattern><![CDATA[cfinvoke[[:blank:]]+component[[:blank:]]*[=][\"]]]></pattern>
+						<callee><![CDATA[[[:alpha:][:digit:]_]+]]></callee>
+				</referLink>
+				
+				
+				
+				<fireLink>
+						<pattern><![CDATA[(@A=(<CFIF[[:blank:]]+))[[:alpha:][:digit:]_]+[\.]RecordCount$$$(@A)]]></pattern>
+						<callee><![CDATA[[[:alpha:][:digit:]_]+]]></callee>
+				</fireLink>
+				
+				
+				<callLink>
+						<pattern><![CDATA[[\.]+]]></pattern>
+						<callee><![CDATA[[[:alpha:][:digit:]_]+]]></callee>
+				</callLink>
+		<callLink>
+			<pattern><![CDATA[[\/]]]></pattern>
+			<callee><![CDATA[[a-zA-Z_\x7f-\xff][[:alpha:][:digit:]_\x7f-\xff]*]]></callee>
+		</callLink>
+	
+	</links>
+<esql>
+	<begin><![CDATA[[\<][[:blank:]]*[cC]?[fF]?[qQ][uU][eE][rR][yY][[:blank:]]]]></begin>
+	<end><![CDATA[[\<][\/][cC]?[fF]?[qQ][uU][eE][rR][yY][\>]]]></end>
+</esql>
+<esql>
+	<begin><![CDATA[[\<][[:blank:]]*[cC]?[fF]?[qQ][uU][eE][rR][yY][[:blank:]][nN][aA][mM][eE][\=][\"]]]></begin>
+	<end><![CDATA[[\<][\/][cC][fF][qQ][uU][eE][rR][yY][\>]]]></end>
+</esql>
+<esql>
+	<begin><![CDATA[[\<][[:blank:]]*[cC]?[fF]?[sS][tT][oO][rR][eE][dD][pP][rR][oO][cC][[:blank:]][pP][rR][oO][cC][eE][dD][uU][rR][eE][\=][\"]]]></begin>
+	<end><![CDATA[[\<][\/][cC]?[fF]?[sS][tT][oO][rR][eE][dD][pP][rR][oO][cC][\>]]]></end>
+</esql>
+
+
+
+</languagePattern>
+

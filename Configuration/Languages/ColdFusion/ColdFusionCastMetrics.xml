@@ -1,0 +1,335 @@
+<METRIC_LIST>
+
+    <METRIC Name="Cyclomatic Complexity" TYPE="1">
+		<LANGUAGE NAME="ColdFusion-LANGUAGE">		
+			<ACTIVE>yes</ACTIVE>
+			<INIT>1</INIT>
+			<SEARCH_IN_CODE>Yes</SEARCH_IN_CODE>
+			<SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+			<SEARCH_IN_STRING>No</SEARCH_IN_STRING>
+			<SEARCH_IN_EMBEDDEDSQL>No</SEARCH_IN_EMBEDDEDSQL>
+			<SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+          <REGEXP><![CDATA[<cfif[:blank:]]]></REGEXP>
+		  <REGEXP><![CDATA[<cfelseif[:blank:]]]></REGEXP>
+		  <REGEXP><![CDATA[<cfswitch[:blank:]]]></REGEXP>
+		  <REGEXP><![CDATA[<cfdefaultcase[:blank:]]]></REGEXP>
+		  <REGEXP><![CDATA[<cfloop[:blank:]]]></REGEXP>
+		  <REGEXP><![CDATA[<cfthrow[:blank:]]]></REGEXP>
+		  <REGEXP><![CDATA[<cfrethrow[:blank:]]]></REGEXP>
+
+		</LANGUAGE>
+	</METRIC>
+	
+<!-- ***************************************************************************************************** -->
+<!-- ***************        2 - Raw SQL Complexity                                       ***************** -->
+<!-- ***************************************************************************************************** -->
+<METRIC Name="Raw SQL Complexity" TYPE="2">	
+		<LANGUAGE NAME="ColdFusion-LANGUAGE">		
+			<ACTIVE>yes</ACTIVE>
+			<INIT>0</INIT>
+			<SEARCH_IN_CODE>Yes</SEARCH_IN_CODE>
+			<SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+			<SEARCH_IN_STRING>No</SEARCH_IN_STRING>
+			<SEARCH_IN_EMBEDDEDSQL>No</SEARCH_IN_EMBEDDEDSQL>
+			<SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+			<EMBEDDED> 
+        				<ADD>1</ADD> 
+        				<BEGIN> 
+                		<REGEXP>FROM</REGEXP>
+        				</BEGIN> 
+        				<VALUE> 
+                		<REGEXP>,</REGEXP> 
+								<REGEXP>JOIN</REGEXP> 
+       					</VALUE> 
+        				<END> 
+                		<REGEXP><![CDATA[\.|WHERE|GROUP|HAVING|ORDER|OPEN|UNION|INSERT|\)|SELECT]]></REGEXP>  
+        				</END> 
+ 				</EMBEDDED> 									
+		</LANGUAGE>		
+</METRIC>
+	
+	<METRIC Name="Number of Subqueries" TYPE="3">
+		<LANGUAGE NAME="ColdFusion-LANGUAGE">		
+			<ACTIVE>yes</ACTIVE>
+			<INIT>0</INIT>
+			<SEARCH_IN_CODE>Yes</SEARCH_IN_CODE>
+			<SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+			<SEARCH_IN_STRING>No</SEARCH_IN_STRING>
+			<SEARCH_IN_EMBEDDEDSQL>Yes</SEARCH_IN_EMBEDDEDSQL>
+			<SEARCH_CASE_SENSITIVE>NO</SEARCH_CASE_SENSITIVE>
+			<REGEXP><![CDATA[(IN|=)[[:blank:]\n\r]*\([[:blank:]\n\r]*SELECT]]></REGEXP>
+			<REGEXP><![CDATA[(OR|AND|WHERE)[[:blank:]\n\r]+EXISTS[[:blank:]\n\r]*\([[:blank:]\n\r]*SELECT]]></REGEXP>
+			<REGEXP><![CDATA[(OR|AND|WHERE)[[:blank:]\n\r]+NOT[[:blank:]\n\r]+EXISTS[[:blank:]\n\r]*\([[:blank:]\n\r]*SELECT]]></REGEXP>
+			<REGEXP><![CDATA[(FROM|JOIN)[[:blank:]\n\r]*\([[:blank:]\n\r]*SELECT]]></REGEXP>							
+		</LANGUAGE>
+	</METRIC>
+	
+	<METRIC Name="Number of GROUP BY" TYPE="5">
+		<LANGUAGE NAME="ColdFusion-LANGUAGE">		
+			<ACTIVE>yes</ACTIVE>
+			<INIT>0</INIT>
+			<SEARCH_IN_CODE>Yes</SEARCH_IN_CODE>
+			<SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+			<SEARCH_IN_STRING>No</SEARCH_IN_STRING>
+			<SEARCH_IN_EMBEDDEDSQL>Yes</SEARCH_IN_EMBEDDEDSQL>
+			<SEARCH_CASE_SENSITIVE>NO</SEARCH_CASE_SENSITIVE>
+			<REGEXP><![CDATA[GROUP[[:blank:]\r\n]+BY]]></REGEXP>			
+		</LANGUAGE>
+	</METRIC>
+	
+	<METRIC Name="Use of NOT IN" TYPE="6">
+		<LANGUAGE NAME="ColdFusion-LANGUAGE">
+			<ACTIVE>yes</ACTIVE>
+			<INIT>0</INIT>
+			<SEARCH_IN_CODE>Yes</SEARCH_IN_CODE>
+			<SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+			<SEARCH_IN_STRING>No</SEARCH_IN_STRING>
+			<SEARCH_IN_EMBEDDEDSQL>Yes</SEARCH_IN_EMBEDDEDSQL>
+			<SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+			<REGEXP><![CDATA[NOT[[:blank:]\n\r]+IN[\([:blank:]\r\n]]]></REGEXP>					
+		</LANGUAGE>
+	</METRIC>
+	
+	
+	<METRIC Name="Use of NOT EXISTS" TYPE="7">
+		<LANGUAGE NAME="ColdFusion-LANGUAGE">
+			<ACTIVE>yes</ACTIVE>
+			<INIT>0</INIT>
+			<SEARCH_IN_CODE>Yes</SEARCH_IN_CODE>
+			<SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+			<SEARCH_IN_STRING>No</SEARCH_IN_STRING>
+			<SEARCH_IN_EMBEDDEDSQL>Yes</SEARCH_IN_EMBEDDEDSQL>
+			<SEARCH_CASE_SENSITIVE>NO</SEARCH_CASE_SENSITIVE>
+			<REGEXP><![CDATA[NOT[[:blank:]\n\r]+EXISTS[\([:blank:]\r\n]]]></REGEXP>							
+		</LANGUAGE>
+	</METRIC>
+	
+	<METRIC NAME="Joins on more than 4 Tables" TYPE="9">
+		<LANGUAGE NAME="ColdFusion-LANGUAGE">		
+			<ACTIVE>yes</ACTIVE>
+			<INIT>0</INIT>
+			<SEARCH_IN_CODE>Yes</SEARCH_IN_CODE>
+			<SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+			<SEARCH_IN_STRING>No</SEARCH_IN_STRING>
+			<SEARCH_IN_EMBEDDEDSQL>Yes</SEARCH_IN_EMBEDDEDSQL>
+			<SEARCH_CASE_SENSITIVE>NO</SEARCH_CASE_SENSITIVE>
+			<EMBEDDED> 
+        			<ADD>0</ADD> 
+        			<THRESHOLD>3</THRESHOLD> 
+        			<BEGIN> 
+                			<REGEXP>FROM</REGEXP>
+        			</BEGIN> 
+        			<VALUE> 
+                			<REGEXP>,</REGEXP> 
+					<REGEXP>JOIN</REGEXP> 
+       				</VALUE> 
+        			<END> 
+                        	<REGEXP>WHERE|;|OPEN|SELECT|INTO</REGEXP>  
+        			</END> 
+ 			</EMBEDDED> 		
+		</LANGUAGE>
+	</METRIC>
+	
+	<METRIC NAME="Avoid using COUNT(*)" TYPE="3900007">
+		<LANGUAGE NAME="ColdFusion-LANGUAGE">		
+			<ACTIVE>yes</ACTIVE>
+			<INIT>0</INIT>
+			<SEARCH_IN_CODE>Yes</SEARCH_IN_CODE>
+			<SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+			<SEARCH_IN_STRING>Yes</SEARCH_IN_STRING>
+			<SEARCH_IN_EMBEDDEDSQL>Yes</SEARCH_IN_EMBEDDEDSQL>
+			<SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+			<REGEXP>count[[:blank:]]*\([[:blank:]]*\*[[:blank:]]*\)</REGEXP>								
+		</LANGUAGE>					
+	</METRIC>
+	
+	<METRIC NAME="Avoid using UNION" TYPE="3900008">
+		<LANGUAGE NAME="ColdFusion-LANGUAGE">		
+			<ACTIVE>yes</ACTIVE>
+			<INIT>0</INIT>
+			<SEARCH_IN_CODE>Yes</SEARCH_IN_CODE>
+			<SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+			<SEARCH_IN_STRING>No</SEARCH_IN_STRING>
+			<SEARCH_IN_EMBEDDEDSQL>Yes</SEARCH_IN_EMBEDDEDSQL>
+			<SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+			<REGEXP><![CDATA[UNION[[:blank:]\r\n]+[</cfif>]*[[:blank:]\r\n]*SELECT]]></REGEXP>
+		</LANGUAGE>
+	</METRIC>
+	
+	<METRIC NAME="Avoid using SELECT * statement in SQL" TYPE="3900009">
+		<LANGUAGE NAME="ColdFusion-LANGUAGE">		
+			<ACTIVE>yes</ACTIVE>
+			<INIT>0</INIT>
+			<SEARCH_IN_CODE>Yes</SEARCH_IN_CODE>
+			<SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+			<SEARCH_IN_STRING>No</SEARCH_IN_STRING>
+			<SEARCH_IN_EMBEDDEDSQL>Yes</SEARCH_IN_EMBEDDEDSQL>
+			<SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+			<REGEXP>SELECT[[:blank:]]+[\*]</REGEXP>					
+		</LANGUAGE>
+	</METRIC>	
+	
+	<METRIC name="Count of SELECT statement in CFQUERY" TYPE="3900010">
+		<LANGUAGE NAME="ColdFusion-LANGUAGE">		
+			<ACTIVE>yes</ACTIVE>
+			<INIT>0</INIT>
+			<SEARCH_IN_CODE>Yes</SEARCH_IN_CODE>
+			<SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+			<SEARCH_IN_STRING>No</SEARCH_IN_STRING>
+			<SEARCH_IN_EMBEDDEDSQL>Yes</SEARCH_IN_EMBEDDEDSQL>
+			<SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+			<REGEXP>SELECT[[:blank:]]+</REGEXP>					
+		</LANGUAGE>
+	</METRIC>
+	
+	<METRIC name="Count of cffile" TYPE="3900011">
+		<LANGUAGE NAME="ColdFusion-LANGUAGE">		
+			<ACTIVE>yes</ACTIVE>
+			<INIT>0</INIT>
+			<SEARCH_IN_CODE>Yes</SEARCH_IN_CODE>
+			<SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+			<SEARCH_IN_STRING>No</SEARCH_IN_STRING>
+			<SEARCH_IN_EMBEDDEDSQL>No</SEARCH_IN_EMBEDDEDSQL>
+			<SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+			<REGEXP><![CDATA[<cffile[:blank:]]]></REGEXP>					
+		</LANGUAGE>
+	</METRIC>
+	
+		<METRIC name="Count of cfdump" TYPE="3900012">
+		<LANGUAGE NAME="ColdFusion-LANGUAGE">		
+			<ACTIVE>yes</ACTIVE>
+			<INIT>0</INIT>
+			<SEARCH_IN_CODE>Yes</SEARCH_IN_CODE>
+			<SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+			<SEARCH_IN_STRING>No</SEARCH_IN_STRING>
+			<SEARCH_IN_EMBEDDEDSQL>No</SEARCH_IN_EMBEDDEDSQL>
+			<SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+			<REGEXP><![CDATA[<cfdump[:blank:]]]></REGEXP>					
+		</LANGUAGE>
+	</METRIC>
+	
+	<METRIC name="Count of isDebugMode" TYPE="3900013">
+		<LANGUAGE NAME="ColdFusion-LANGUAGE">		
+			<ACTIVE>yes</ACTIVE>
+			<INIT>0</INIT>
+			<SEARCH_IN_CODE>Yes</SEARCH_IN_CODE>
+			<SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+			<SEARCH_IN_STRING>No</SEARCH_IN_STRING>
+			<SEARCH_IN_EMBEDDEDSQL>No</SEARCH_IN_EMBEDDEDSQL>
+			<SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+			<REGEXP>IsDebugMode</REGEXP>					
+		</LANGUAGE>
+	</METRIC>
+	
+	<METRIC Name="Number of Instanciation Inside Loop" TYPE="3900014">
+		<LANGUAGE NAME="ColdFusion-LANGUAGE">		
+			<ACTIVE>YES</ACTIVE>
+			<INIT>0</INIT>
+			<SEARCH_IN_CODE>Yes</SEARCH_IN_CODE>
+			<SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+			<SEARCH_IN_STRING>No</SEARCH_IN_STRING>
+			<SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+			<EMBEDDED> 
+	        			<ADD>0</ADD> 
+						<THRESHOLD>0</THRESHOLD> 
+	        			<BEGIN> 
+          <REGEXP><![CDATA[<cfloop]]></REGEXP>
+	        			</BEGIN> 
+	        			<VALUE> 
+          <REGEXP><![CDATA[<cfobject[[:blank:]\r\n]+action[[:blank:]\r\n]*=[[:blank:]\r\n]*"create"]]></REGEXP> 	
+	       				</VALUE> 
+	        			<END> 
+          <REGEXP><![CDATA[</cfloop>]]></REGEXP> 
+	        			</END> 
+	 		</EMBEDDED>
+		</LANGUAGE>
+	</METRIC>
+	
+  <METRIC Name="Number of SQL Queries Inside Loop" TYPE="3900015">
+    <LANGUAGE NAME="ColdFusion-LANGUAGE">		
+      <ACTIVE>YES</ACTIVE>
+			<INIT>0</INIT>
+			<SEARCH_IN_CODE>Yes</SEARCH_IN_CODE>
+			<SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+			<SEARCH_IN_STRING>No</SEARCH_IN_STRING>
+			<SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+	    <EMBEDDED> 
+        <ADD>0</ADD> 
+        <THRESHOLD>0</THRESHOLD> 
+        <BEGIN>
+          <REGEXP><![CDATA[<cfloop]]></REGEXP>
+        </BEGIN> 
+        <VALUE> 
+          <REGEXP><![CDATA[<cfquery]]></REGEXP>
+        </VALUE> 
+        <END> 
+          <REGEXP><![CDATA[</cfloop>]]></REGEXP> 
+        </END> 
+      </EMBEDDED>
+		</LANGUAGE>
+	</METRIC>
+	
+	<METRIC name="Count of iif" TYPE="3900016">
+		<LANGUAGE NAME="ColdFusion-LANGUAGE">		
+			<ACTIVE>yes</ACTIVE>
+			<INIT>0</INIT>
+			<SEARCH_IN_CODE>Yes</SEARCH_IN_CODE>
+			<SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+			<SEARCH_IN_STRING>No</SEARCH_IN_STRING>
+			<SEARCH_IN_EMBEDDEDSQL>No</SEARCH_IN_EMBEDDEDSQL>
+			<SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+			<REGEXP><![CDATA[iif]]></REGEXP>					
+		</LANGUAGE>
+	</METRIC>
+	
+	<METRIC Name="Number of break Inside Loop" TYPE="3900017">
+		<LANGUAGE NAME="ColdFusion-LANGUAGE">		
+			<ACTIVE>YES</ACTIVE>
+			<INIT>0</INIT>
+			<SEARCH_IN_CODE>Yes</SEARCH_IN_CODE>
+			<SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+			<SEARCH_IN_STRING>No</SEARCH_IN_STRING>
+			<SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+	    <EMBEDDED> 
+        <ADD>0</ADD> 
+        <THRESHOLD>0</THRESHOLD> 
+        <BEGIN>
+          <REGEXP><![CDATA[<cfloop]]></REGEXP>
+        </BEGIN> 
+        <VALUE> 
+          <REGEXP><![CDATA[<cfbreak>]]></REGEXP>
+        </VALUE> 
+        <END> 
+          <REGEXP><![CDATA[</cfloop>]]></REGEXP> 
+        </END> 
+      </EMBEDDED>
+		</LANGUAGE>
+	</METRIC>
+	
+	<METRIC name="Count of cfswitch" TYPE="3900018">
+		<LANGUAGE NAME="ColdFusion-LANGUAGE">		
+			<ACTIVE>yes</ACTIVE>
+			<INIT>0</INIT>
+			<SEARCH_IN_CODE>Yes</SEARCH_IN_CODE>
+			<SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+			<SEARCH_IN_STRING>No</SEARCH_IN_STRING>
+			<SEARCH_IN_EMBEDDEDSQL>No</SEARCH_IN_EMBEDDEDSQL>
+			<SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+			<REGEXP><![CDATA[<cfswitch]]></REGEXP>					
+		</LANGUAGE>
+	</METRIC>
+	
+	<METRIC name="Count of cfdefaultcase" TYPE="3900019">
+		<LANGUAGE NAME="ColdFusion-LANGUAGE">		
+			<ACTIVE>yes</ACTIVE>
+			<INIT>0</INIT>
+			<SEARCH_IN_CODE>Yes</SEARCH_IN_CODE>
+			<SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+			<SEARCH_IN_STRING>No</SEARCH_IN_STRING>
+			<SEARCH_IN_EMBEDDEDSQL>No</SEARCH_IN_EMBEDDEDSQL>
+			<SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+			<REGEXP><![CDATA[<cfdefaultcase]]></REGEXP>					
+		</LANGUAGE>
+	</METRIC>
+	
+</METRIC_LIST>

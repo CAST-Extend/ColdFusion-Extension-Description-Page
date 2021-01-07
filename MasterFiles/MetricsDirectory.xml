@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <metric id="-1" type="N/A" originalName="N/A" active="N/A" detached="N/A" ignored="false" />
+  <metric id="7124" type="quality-rule" originalName="Functional Evolvability" active="N/A" detached="N/A" ignored="false" />
+  <metric id="10201" type="sizing-measure" originalName="Backfired Function Points" active="N/A" detached="N/A" ignored="false" />
+  <metric id="60003" type="folder" originalName="Technical Size" active="N/A" detached="N/A" ignored="false" />
+  <metric id="61006" type="technical-criterion" originalName="Documentation - Style Conformity" active="N/A" detached="N/A" ignored="false" />
+  <metric id="61009" type="technical-criterion" originalName="Complexity - Algorithmic and Control Structure Complexity" active="N/A" detached="N/A" ignored="false" />
+  <metric id="61013" type="technical-criterion" originalName="Architecture - Object-level Dependencies" active="N/A" detached="N/A" ignored="false" />
+  <metric id="61017" type="technical-criterion" originalName="Documentation - Naming Convention Conformity" active="N/A" detached="N/A" ignored="false" />
+  <metric id="61018" type="technical-criterion" originalName="Efficiency - Memory, Network and Disk Space Management" active="N/A" detached="N/A" ignored="false" />
+  <metric id="61019" type="technical-criterion" originalName="Efficiency - SQL and Data Handling Performance" active="N/A" detached="N/A" ignored="false" />
+  <metric id="61022" type="technical-criterion" originalName="Volume - Number of Components" active="N/A" detached="N/A" ignored="false" />
+  <metric id="61023" type="technical-criterion" originalName="Volume - Number of LOC" active="N/A" detached="N/A" ignored="false" />
+  <metric id="61024" type="technical-criterion" originalName="Programming Practices - Structuredness" active="N/A" detached="N/A" ignored="false" />
+  <metric id="61027" type="technical-criterion" originalName="Dead code (static)" active="N/A" detached="N/A" ignored="false" />
+  <metric id="61028" type="technical-criterion" originalName="Documentation - Volume of Comments" active="N/A" detached="N/A" ignored="false" />
+  <metric id="65105" type="quality-distribution" originalName="Size Distribution" active="N/A" detached="N/A" ignored="false" />
+  <metric id="65350" type="quality-distribution" originalName="Coupling Distribution" active="N/A" detached="N/A" ignored="false" />
+  <metric id="65501" type="quality-distribution" originalName="Cyclomatic Complexity Distribution" active="N/A" detached="N/A" ignored="false" />
+  <metric id="66009" type="technical-criterion" originalName="Architecture - Reuse" active="N/A" detached="N/A" ignored="false" />
+  <metric id="66010" type="quality-distribution" originalName="Reuse by Call Distribution" active="N/A" detached="N/A" ignored="false" />
+  <metric id="66068" type="technical-criterion" originalName="Efficiency - Expensive Calls in Loops" active="N/A" detached="N/A" ignored="false" />
+  <metric id="66069" type="technical-criterion" originalName="Programming Practices - Unexpected Behavior" active="N/A" detached="N/A" ignored="false" />
+  <metric id="2351000" type="sizing-measure" originalName="Number of ColdFusion Components" active="true" detached="false" ignored="false" />
+  <metric id="2351002" type="sizing-measure" originalName="Number of ColdFusion Templates" active="true" detached="false" ignored="false" />
+  <metric id="2351006" type="sizing-measure" originalName="Number of ColdFusion Functions" active="true" detached="false" ignored="false" />
+  <metric id="2351012" type="sizing-measure" originalName="Number of ColdFusion Queries" active="true" detached="false" ignored="false" />
+  <metric id="2351120" type="quality-rule" originalName="ColdFusion: Avoid Functions with a high Fan-out" active="true" detached="false" ignored="false" />
+  <metric id="2351122" type="quality-rule" originalName="ColdFusion: Avoid Functions with a high Fan-in" active="true" detached="false" ignored="false" />
+  <metric id="2351128" type="quality-rule" originalName="ColdFusion: Avoid Templates with a high Fan-out" active="true" detached="false" ignored="false" />
+  <metric id="2351130" type="quality-rule" originalName="ColdFusion: Avoid Templates with a high Fan-in" active="true" detached="false" ignored="false" />
+  <metric id="2351180" type="quality-rule" originalName="ColdFusion: Avoid Functions with high Cyclomatic Complexity" active="true" detached="false" ignored="false" />
+  <metric id="2351184" type="quality-rule" originalName="ColdFusion: Avoid Templates with high Cyclomatic Complexity" active="true" detached="false" ignored="false" />
+  <metric id="2351322" type="quality-rule" originalName="ColdFusion: Avoid unreferenced Functions" active="true" detached="false" ignored="false" />
+  <metric id="2351324" type="quality-rule" originalName="ColdFusion: Avoid unreferenced Templates" active="true" detached="false" ignored="false" />
+  <metric id="2351382" type="quality-rule" originalName="ColdFusion: Naming convention on Function" active="true" detached="false" ignored="false" />
+  <metric id="2351384" type="quality-rule" originalName="ColdFusion: Naming convention on Query" active="true" detached="false" ignored="false" />
+  <metric id="2351386" type="quality-rule" originalName="ColdFusion: Naming convention on Template" active="true" detached="false" ignored="false" />
+  <metric id="2351420" type="quality-rule" originalName="ColdFusion: Avoid code lines longer than 80 characters in Functions" active="true" detached="false" ignored="false" />
+  <metric id="2351424" type="quality-rule" originalName="ColdFusion: Avoid code lines longer than 80 characters in Templates" active="true" detached="false" ignored="false" />
+  <metric id="2351440" type="quality-rule" originalName="ColdFusion: Avoid undocumented Functions" active="true" detached="false" ignored="false" />
+  <metric id="2351442" type="quality-rule" originalName="ColdFusion: Avoid Functions with a low comment/code ratio" active="true" detached="false" ignored="false" />
+  <metric id="2351448" type="quality-rule" originalName="ColdFusion: Avoid undocumented Templates" active="true" detached="false" ignored="false" />
+  <metric id="2351450" type="quality-rule" originalName="ColdFusion: Avoid Templates with a low comment/code ratio" active="true" detached="false" ignored="false" />
+  <metric id="2351482" type="quality-rule" originalName="ColdFusion: Avoid using cffile for file access" active="true" detached="false" ignored="false" />
+  <metric id="2351540" type="quality-rule" originalName="ColdFusion: Avoid Queries with COUNT(*) statement" active="true" detached="false" ignored="false" />
+  <metric id="2351542" type="quality-rule" originalName="ColdFusion: Avoid Queries using JOINS  on more than 4 Tables" active="true" detached="false" ignored="false" />
+  <metric id="2351544" type="quality-rule" originalName="ColdFusion: Avoid Queries using GROUP BY" active="true" detached="false" ignored="false" />
+  <metric id="2351546" type="quality-rule" originalName="ColdFusion: Avoid Queries with SELECT * statement" active="true" detached="false" ignored="false" />
+  <metric id="2351548" type="quality-rule" originalName="ColdFusion: Avoid Queries with Subqueries" active="true" detached="false" ignored="false" />
+  <metric id="2351550" type="quality-rule" originalName="ColdFusion: Avoid Queries using NOT EXISTS" active="true" detached="false" ignored="false" />
+  <metric id="2351552" type="quality-rule" originalName="ColdFusion: Prefer UNION ALL to UNION" active="true" detached="false" ignored="false" />
+  <metric id="2351554" type="quality-rule" originalName="ColdFusion: Avoid  Queries using NOT IN" active="true" detached="false" ignored="false" />
+  <metric id="2351720" type="quality-rule" originalName="ColdFusion: Avoid Break in loops" active="true" detached="false" ignored="false" />
+  <metric id="2351860" type="quality-rule" originalName="ColdFusion: Avoid Templates with more than X Functions" active="true" detached="false" ignored="false" />
+  <metric id="2351880" type="quality-rule" originalName="ColdFusion: Avoid Functions with more then XX Lines of Code" active="true" detached="false" ignored="false" />
+  <metric id="2351884" type="quality-rule" originalName="ColdFusion: Avoid Templates with more then XX Lines of Code" active="true" detached="false" ignored="false" />  
+  <metric id="2351460" type="quality-rule" originalName="ColdFusion: Avoid using SQL queries inside a loop" active="true" detached="false" ignored="false" />  
+  <metric id="2351462" type="quality-rule" originalName="ColdFusion: Avoid instanciation in loop" active="true" detached="false" ignored="false" />
+  
+</root>
