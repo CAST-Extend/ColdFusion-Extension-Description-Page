@@ -2,21 +2,21 @@
 <root>
   <metric id="2351120" type="quality-rule" originalName="ColdFusion: Avoid Functions with a high Fan-out" filter="2351000" filterLabel="ColdFusion" />
   <metric id="2351122" type="quality-rule" originalName="ColdFusion: Avoid Functions with a high Fan-in" filter="2351000" filterLabel="ColdFusion" />
-  <metric id="2351128" type="quality-rule" originalName="ColdFusion: Avoid Templates with a high Fan-out" filter="2351000" filterLabel="ColdFusion" />
-  <metric id="2351130" type="quality-rule" originalName="ColdFusion: Avoid Templates with a high Fan-in" filter="2351000" filterLabel="ColdFusion" />
+  <metric id="2351128" type="quality-rule" originalName="ColdFusion: Avoid CFM's with a high Fan-out" filter="2351000" filterLabel="ColdFusion" />
+  <metric id="2351130" type="quality-rule" originalName="ColdFusion: Avoid CFM's with a high Fan-in" filter="2351000" filterLabel="ColdFusion" />
   <metric id="2351180" type="quality-rule" originalName="ColdFusion: Avoid Functions with high Cyclomatic Complexity" filter="2351000" filterLabel="ColdFusion" />
-  <metric id="2351184" type="quality-rule" originalName="ColdFusion: Avoid Templates with high Cyclomatic Complexity" filter="2351000" filterLabel="ColdFusion" />
+  <metric id="2351184" type="quality-rule" originalName="ColdFusion: Avoid CFM's with high Cyclomatic Complexity" filter="2351000" filterLabel="ColdFusion" />
   <metric id="2351322" type="quality-rule" originalName="ColdFusion: Avoid unreferenced Functions" filter="2351000" filterLabel="ColdFusion" />
-  <metric id="2351324" type="quality-rule" originalName="ColdFusion: Avoid unreferenced Templates" filter="2351000" filterLabel="ColdFusion" />
+  <metric id="2351324" type="quality-rule" originalName="ColdFusion: Avoid unreferenced CFM's" filter="2351000" filterLabel="ColdFusion" />
   <metric id="2351382" type="quality-rule" originalName="ColdFusion: Naming convention on Function" filter="2351000" filterLabel="ColdFusion" />
   <metric id="2351384" type="quality-rule" originalName="ColdFusion: Naming convention on Query" filter="2351000" filterLabel="ColdFusion" />
-  <metric id="2351386" type="quality-rule" originalName="ColdFusion: Naming convention on Template" filter="2351000" filterLabel="ColdFusion" />
+  <metric id="2351386" type="quality-rule" originalName="ColdFusion: Naming convention on CFM" filter="2351000" filterLabel="ColdFusion" />
   <metric id="2351420" type="quality-rule" originalName="ColdFusion: Avoid code lines longer than 80 characters in Functions" filter="2351000" filterLabel="ColdFusion" />
-  <metric id="2351424" type="quality-rule" originalName="ColdFusion: Avoid code lines longer than 80 characters in Templates" filter="2351000" filterLabel="ColdFusion" />
+  <metric id="2351424" type="quality-rule" originalName="ColdFusion: Avoid code lines longer than 80 characters in CFM's" filter="2351000" filterLabel="ColdFusion" />
   <metric id="2351440" type="quality-rule" originalName="ColdFusion: Avoid undocumented Functions" filter="2351000" filterLabel="ColdFusion" />
   <metric id="2351442" type="quality-rule" originalName="ColdFusion: Avoid Functions with a low comment/code ratio" filter="2351000" filterLabel="ColdFusion" />
-  <metric id="2351448" type="quality-rule" originalName="ColdFusion: Avoid undocumented Templates" filter="2351000" filterLabel="ColdFusion" />
-  <metric id="2351450" type="quality-rule" originalName="ColdFusion: Avoid Templates with a low comment/code ratio" filter="2351000" filterLabel="ColdFusion" />
+  <metric id="2351448" type="quality-rule" originalName="ColdFusion: Avoid undocumented CFM's" filter="2351000" filterLabel="ColdFusion" />
+  <metric id="2351450" type="quality-rule" originalName="ColdFusion: Avoid CFM's with a low comment/code ratio" filter="2351000" filterLabel="ColdFusion" />
   <metric id="2351482" type="quality-rule" originalName="ColdFusion: Avoid using cffile for file access" filter="2351000" filterLabel="ColdFusion" />
   <metric id="2351540" type="quality-rule" originalName="ColdFusion: Avoid Queries with COUNT(*) statement" filter="2351000" filterLabel="ColdFusion" />
   <metric id="2351542" type="quality-rule" originalName="ColdFusion: Avoid Queries using JOINS  on more than 4 Tables" filter="2351000" filterLabel="ColdFusion" />
@@ -27,9 +27,9 @@
   <metric id="2351552" type="quality-rule" originalName="ColdFusion: Prefer UNION ALL to UNION" filter="2351000" filterLabel="ColdFusion" />
   <metric id="2351554" type="quality-rule" originalName="ColdFusion: Avoid  Queries using NOT IN" filter="2351000" filterLabel="ColdFusion" />
   <metric id="2351720" type="quality-rule" originalName="ColdFusion: Avoid Break in loops" filter="2351000" filterLabel="ColdFusion" />
-  <metric id="2351860" type="quality-rule" originalName="ColdFusion: Avoid Templates with more than X Functions" filter="2351000" filterLabel="ColdFusion" />
+  <metric id="2351860" type="quality-rule" originalName="ColdFusion: Avoid CFM's with more than X Functions" filter="2351000" filterLabel="ColdFusion" />
   <metric id="2351880" type="quality-rule" originalName="ColdFusion: Avoid Functions with more then XX Lines of Code" filter="2351000" filterLabel="ColdFusion" />
-  <metric id="2351884" type="quality-rule" originalName="ColdFusion: Avoid Templates with more then XX Lines of Code" filter="2351000" filterLabel="ColdFusion" />
+  <metric id="2351884" type="quality-rule" originalName="ColdFusion: Avoid CFM's with more then XX Lines of Code" filter="2351000" filterLabel="ColdFusion" />
   <metric id="2351460" type="quality-rule" originalName="ColdFusion: Avoid using SQL queries inside a loop" filter="2351000" filterLabel="ColdFusion" />
   <metric id="2351462" type="quality-rule" originalName="ColdFusion: Avoid instanciation in loop" filter="2351000" filterLabel="ColdFusion" />
 </root>

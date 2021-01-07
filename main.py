@@ -33,7 +33,7 @@ class ColdFusionExtension(cast.analysers.ua.Extension):
         self.file = ""    
         self.cf_data = ""  
         self.cfWebService_List = []    
-        self.valid_tags_list = ['cfcomponent', 'cffunction', 'cfquery', 'cfinvoke', 'cffile', 'cfftp', 'cfhttp', 'cftemplate']
+        self.valid_tags_list = ['cfcomponent', 'cffunction', 'cfquery', 'cfinvoke', 'cffile', 'cfftp', 'cfhttp']
         pass
     
     def start_analysis(self):
@@ -44,7 +44,41 @@ class ColdFusionExtension(cast.analysers.ua.Extension):
         log.debug("Inside start_analysis -- self.intermediate_file_CFInsertUpdate" + str(self.intermediate_file_CFInsertUpdate))
         logging.info("Inside start_analysis -- self.intermediate_file_CFInsertUpdate" + str(self.intermediate_file_CFInsertUpdate))
         pass
-     
+
+    def count_slice_lines(self, s):
+        ''' Return the number of code and mono-line comment lines in s '''
+        numberofcodelines = 0
+        numberofcommentlines = 0
+        for l in s.split("\n"):
+            if l.strip().find("//") == 0:
+                numberofcommentlines += 1
+            elif len(l.strip()) != 0:
+                numberofcodelines += 1
+        log.info('count_slice_lines -- number of code lines: {codelines}, number of comment lines: {commentlines}'.format(codelines = numberofcodelines, commentlines = numberofcommentlines))
+        return numberofcodelines, numberofcommentlines
+    
+    def count_lines(self, s):
+        ''' Return the number of code and (mono-line and multi-line) comment lines in s ''' 
+        startcomment = "<!--"
+        endcomment = "-->"
+        endcommentlen = len(endcomment)
+        numberofcodelines = 0
+        numberofcommentlines = 0
+        end = 0
+        start = s.find(startcomment)
+        while start >= 0:
+            numberofslicecodelines, numberofslicecommentlines = self.count_slice_lines(s[end:start])
+            numberofcodelines += numberofslicecodelines
+            numberofcommentlines += numberofslicecommentlines
+            end = s.find(endcomment, start) + endcommentlen
+            numberofcommentlines += s.count("\n", start, end) + 1
+            start = s.find(startcomment, end)
+        numberofslicecodelines, numberofslicecommentlines = self.count_slice_lines(s[end:])
+        numberofcodelines += numberofslicecodelines
+        numberofcommentlines += numberofslicecommentlines
+        log.info('count_lines -- number of code lines: {codelines}, number of comment lines: {commentlines}'.format(codelines = numberofcodelines, commentlines = numberofcommentlines))
+        return numberofcodelines, numberofcommentlines
+    
     def start_file(self, file):
         self.file = file
         self.filename = file.get_path()
@@ -77,7 +111,7 @@ class ColdFusionExtension(cast.analysers.ua.Extension):
             CFComponent = CustomObject()
             self.saveObject(CFComponent, self.name, self.cfcomponent_fullname, "ColdFusion_CFC", file, self.cfcomponent_fullname)
             CFComponent.save()
-            CFComponent.save_position(Bookmark(file, 1, 1, -1, -1))
+            CFComponent.save_position(Bookmark(file, 1, 1, len(file_data), len(file_data[-1])))
             checksum = self.getcrc(self.filename)
             CFComponent.save_property('checksum.CodeOnlyChecksum', checksum)
             CFComponent.save_property('metric.CodeLinesCount', 0)
@@ -102,12 +136,14 @@ class ColdFusionExtension(cast.analysers.ua.Extension):
             CFTemplate = CustomObject()
             self.saveObject(CFTemplate, self.name, self.cftemplate_fullname, "ColdFusion_CFM", file, self.cftemplate_fullname)
             CFTemplate.save()
-            CFTemplate.save_position(Bookmark(file, 1, 1, -1, -1))
+            CFTemplate.save_position(Bookmark(file, 1, 1, len(file_data), len(file_data[-1])))
             checksum = self.getcrc(self.filename)
             CFTemplate.save_property('checksum.CodeOnlyChecksum', checksum)
-            CFTemplate.save_property('metric.CodeLinesCount', 0)
+            numberofcodelines, numberofcommentlines = self.count_lines("\n".join(file_data))
+            log.info('CFM -- number of code lines: {codelines}, number of comment lines: {commentlines}'.format(codelines = numberofcodelines, commentlines = numberofcommentlines))
+            CFTemplate.save_property('metric.CodeLinesCount', numberofcodelines)
             CFTemplate.save_property('metric.LeadingCommentLinesCount', 0)
-            CFTemplate.save_property('metric.BodyCommentLinesCount', 0)
+            CFTemplate.save_property('metric.BodyCommentLinesCount', numberofcommentlines)
             self.createInternalLinks(file, CFTemplate, self.cftemplate_fullname)
             pass
             
@@ -119,23 +155,32 @@ class ColdFusionExtension(cast.analysers.ua.Extension):
         
     def getcrc(self, text, initial_crc=0):
         return binascii.crc32(bytes(text.lower(), 'UTF-8'), initial_crc) - 2 ** 31
-      
+
+    def getbookmark(self, file, tag):
+        lines = str(tag).split("\n")
+        lineslen = len(lines)
+        lastlinelen = len(lines[-1]) 
+        endsourceline = tag.sourceline + lineslen - 1
+        if lineslen > 1:
+            endsourcepos = lastlinelen - 1
+        else:
+            endsourcepos = tag.sourcepos + lastlinelen - 1
+        return Bookmark(file, tag.sourceline, tag.sourcepos, endsourceline, endsourcepos)
+                
     def createInternalLinks(self, file, parent, parentfullname,):
         log.debug("Inside createInternalLinks *** ")
         logging.info("Inside createInternalLinks *** ")
         obj_parentNameFinal = None
         parser = CastOperation()
         cf_data = parser.castParserColdFusion(file, self.filename)   
-        valid_tags_list = ['[document]', 'cfcomponent', 'cftemplate', 'cffunction', 'cfquery', 'cfinvoke', 'cffile', 'cfftp', 'cfhttp', 'cfupdate', 'cfinsert', 'cfstoredproc', 'cfmail']
+        valid_tags_list = ['[document]', 'cfcomponent', 'cffunction', 'cfquery', 'cfinvoke', 'cffile', 'cfftp', 'cfhttp', 'cfupdate', 'cfinsert', 'cfstoredproc', 'cfmail']
         type_dict = {'cfcomponent':'CFComponent',
-                     'cftemplate':'CFTemplate',
                      'cffunction':'CFFunction',
                      'cfquery':'CFQuery',
                      'cfinvoke':'CFInvoke',
                      'cffile':'CFFile',
                      'cfftp':'CFFTP',
                      'cfhttp':'CFHttp',
-                     'cfinsert':'CFTemplate',
                      'cfmail':'CFMail',
                      'cfwebservice':'CFWebService'}
         
@@ -195,7 +240,7 @@ class ColdFusionExtension(cast.analysers.ua.Extension):
                             log.debug("parent name -- > from tag list   cfcomponent " + str(obj_parentNameFinal))
                             # break
                         # pass
-                        if p.name in valid_tags_list and p.name in ('cftemplate', 'cffunction', 'cfquery', 'cfinvoke', 'cffile', 'cfftp', 'cfhttp', 'cfupdate', 'cfinsert', 'cfstoredproc', 'cfmail'):
+                        if p.name in valid_tags_list and p.name in ('cffunction', 'cfquery', 'cfinvoke', 'cffile', 'cfftp', 'cfhttp', 'cfupdate', 'cfinsert', 'cfstoredproc', 'cfmail'):
                         # elif p.name in valid_tags_list and p.name is not None:   
                             obj_parentTagName = p.name
                             obj_parentName = p.get('name')
@@ -214,15 +259,9 @@ class ColdFusionExtension(cast.analysers.ua.Extension):
                     log.debug("parent name-->1111  " + str(obj_parentNameFinal) + "--> childname-->1111  " + str(obj_tagname) + "." + str(obj_name))
                 
                     if name == 'cfcomponent' and child.parent.name == '[document]':
-                        cfcomp_obj_name1 = child.get('displayname')
-                        if cfcomp_obj_name1 is None:
-                            undefined_childCounter = undefined_childCounter + 1
-                            cfcomp_obj_name1 = "Undefined"
-                            # break
-                            # log.debug("cfcomp_obj_name Undefined" + str(cfcomp_obj_name1))
                                       
                         # log.debug("cfcomp_obj_name-->" + str(cfcomp_obj_name1))  
-                        cfcomp_obj_name = str(cfcomp_obj_name1).replace(" ", "") 
+                        cfcomp_obj_name = splitext(basename(file.get_path()))[0] 
                           
                         # log.debug("cfcomp_obj_name-->" + str(cfcomp_obj_name))
                         # break
@@ -234,24 +273,12 @@ class ColdFusionExtension(cast.analysers.ua.Extension):
                         cfcomponent.set_parent(parent)
                         # cfcomponent.set_guid(self.file_fullname+"."+str(obj_parentNameFinal)+"."+"cfcomponent."+str(cfcomp_obj_name)+"."+str(guid_counter))
                         cfcomponent.save()
-                        cfcomponent.save_position(Bookmark(file, 1, 1, -1, -1))
+                        cfcomponent.save_position(self.getbookmark(file, child))
                         parentOBJ_List.append(cfcomponent)
                         # log.debug("Obj List... cfcomponent" + str(parentOBJ_List))
                         
-                    elif name == 'cftemplate' and child.parent.name == '[document]':
-                        cftemplate = CustomObject()
-                        # log.debug("CFTemplate Obj name... " + obj_name)
-                        cftemplate.set_name("cftemplate." + obj_name)
-                        cftemplate.set_type('CFTemplate')
-                        cftemplate.set_parent(parent)
-                        # cftemplate.set_guid(self.file_fullname+"."+str(obj_parentNameFinal)+"."+"cftemplate."+obj_name+"."+str(guid_counter))
-                        cftemplate.save()
-                        cftemplate.save_position(Bookmark(file, 1, 1, -1, -1))
-                        parentOBJ_List.append(cftemplate)
-                        # log.debug("Obj List... cftemplate" + str(parentOBJ_List)) 
-                    
                     elif child.name == 'cffunction' :                        
-                       # log.debug("inside cffunction linking")
+                        # log.debug("inside cffunction linking")
                         cffunction = CustomObject()
                         cffunction.set_name("cffunction." + obj_name)
                         cffunction.set_type('CFFunction')
@@ -272,14 +299,17 @@ class ColdFusionExtension(cast.analysers.ua.Extension):
                         if key not in self.cffunction_Var:
                             cffunction.set_guid(key)
                             cffunction.save()
-                            cffunction.save_position(Bookmark(file, 1, 1, -1, -1))
+                            cffunction.save_position(self.getbookmark(file, child))
+                            numberofcodelines, numberofcommentlines = self.count_lines(str(child))
+                            log.info('cffunction -- number of code lines: {codelines}, number of comment lines: {commentlines}'.format(codelines = numberofcodelines, commentlines = numberofcommentlines))
+                            cffunction.save_property('metric.CodeLinesCount', numberofcodelines)
+                            cffunction.save_property('metric.LeadingCommentLinesCount', 0)
+                            cffunction.save_property('metric.BodyCommentLinesCount', numberofcommentlines)
                             self.cffunction_Var.add(key)
                         # cffunction.set_guid(self.file_fullname + "." + str(obj_parentNameFinal) + "." + "cffunction." + obj_name + "." + str(guid_counter))
 #                         log.debug("CFFUNCTION GUID == "+str(self.file_fullname+"."+str(obj_parentName)+"."+"cffunction."+obj_name+"."+str(guid_counter))
                            
                             parentOBJ_List.append(cffunction)
-                            create_link("callLink", cffunction.parent, cffunction)
-                            log.debug(" Link Created to CFFunction   " + str(cffunction.parent.name) + "  --to--  " + str(cffunction.name))
                         
                     elif child.name == 'cfquery':
                         cfquery_guid_counter = cfquery_guid_counter + 1
@@ -324,7 +354,7 @@ class ColdFusionExtension(cast.analysers.ua.Extension):
                         if key not in self.cf_Var:
                             cfquery.set_guid(key)
                             cfquery.save()
-                            cfquery.save_position(Bookmark(file, 1, 1, -1, -1))
+                            cfquery.save_position(self.getbookmark(file, child))
                             self.cf_Var.add(key)
                         # log.debug("cfquery parent == "+str(cfquery.fullname))
                             create_link("callLink", cfquery.parent, cfquery)
@@ -359,7 +389,7 @@ class ColdFusionExtension(cast.analysers.ua.Extension):
                         # CFInvoke.set_guid(self.file_fullname + "." + str(obj_parentNameFinal) + "." + "cfinvoke." + obj_name + "." + str(cfinvoke_guid_counter))
                         CFInvoke.set_guid(self.file_fullname + "." + str(obj_parentNameFinal) + "." + "cfinvoke." + obj_name)
                         CFInvoke.save()
-                        CFInvoke.save_position(Bookmark(file, 1, 1, -1, -1))
+                        CFInvoke.save_position(self.getbookmark(file, child))
                         parentOBJ_List.append(CFInvoke) 
                         create_link("callLink", CFInvoke.parent, CFInvoke)
                         
@@ -399,7 +429,7 @@ class ColdFusionExtension(cast.analysers.ua.Extension):
                                 cffile.set_parent(parent)
                         cffile.set_guid(self.file_fullname + "." + str(obj_parentNameFinal) + "." + "cffile." + obj_name + "." + str(cffile_guid_counter))
                         cffile.save()
-                        cffile.save_position(Bookmark(file, 1, 1, -1, -1))
+                        cffile.save_position(self.getbookmark(file, child))
                         parentOBJ_List.append(cffile)
                         create_link("callLink", cffile.parent, cffile)
                         
@@ -420,7 +450,7 @@ class ColdFusionExtension(cast.analysers.ua.Extension):
                                 cfftp.set_parent(parent)
                         cfftp.set_guid(self.file_fullname + "." + str(obj_parentNameFinal) + "." + "cfftp." + obj_name + "." + str(cfftp_guid_counter))
                         cfftp.save()
-                        cfftp.save_position(Bookmark(file, 1, 1, -1, -1))
+                        cfftp.save_position(self.getbookmark(file, child))
                         parentOBJ_List.append(cfftp)
                         create_link("callLink", cfftp.parent, cfftp)
                         
@@ -441,7 +471,7 @@ class ColdFusionExtension(cast.analysers.ua.Extension):
                                 cfhttp.set_parent(parent)
                         cfhttp.set_guid(self.file_fullname + "." + str(obj_parentNameFinal) + "." + "cfhttp." + obj_name + "." + str(cfhttp_guid_counter))
                         cfhttp.save()
-                        cfhttp.save_position(Bookmark(file, 1, 1, -1, -1))
+                        cfhttp.save_position(self.getbookmark(file, child))
                         parentOBJ_List.append(cfhttp)
                         create_link("callLink", cfhttp.parent, cfhttp)
                         
@@ -464,7 +494,7 @@ class ColdFusionExtension(cast.analysers.ua.Extension):
                         # cfhttp.set_guid(self.file+obj_parentName+"cfhttp."+obj_name+guid_counter)
                         cfmail.set_guid(self.file_fullname + "." + str(obj_parentNameFinal) + "." + "cfmail." + obj_name + "." + str(cfmail_guid_counter))
                         cfmail.save()
-                        cfmail.save_position(Bookmark(file, 1, 1, -1, -1))
+                        cfmail.save_position(self.getbookmark(file, child))
                         parentOBJ_List.append(cfmail)
                         create_link("callLink", cfmail.parent, cfmail)
                         log.debug('CFMail link created')

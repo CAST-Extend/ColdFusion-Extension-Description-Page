@@ -64,11 +64,11 @@
     <defaultValue>5</defaultValue>
     <defaultValuesList>N/A</defaultValuesList>
   </metric>
-  <metric id="2351128" type="quality-rule" originalName="ColdFusion: Avoid Templates with a high Fan-out" parameterName="Max Fan-out" parameterType="integer" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="Max Fan-out">
+  <metric id="2351128" type="quality-rule" originalName="ColdFusion: Avoid CFM's with a high Fan-out" parameterName="Max Fan-out" parameterType="integer" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="Max Fan-out">
     <defaultValue>5</defaultValue>
     <defaultValuesList>N/A</defaultValuesList>
   </metric>
-  <metric id="2351130" type="quality-rule" originalName="ColdFusion: Avoid Templates with a high Fan-in" parameterName="Max Fan-in" parameterType="integer" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="Max Fan-in">
+  <metric id="2351130" type="quality-rule" originalName="ColdFusion: Avoid CFM's with a high Fan-in" parameterName="Max Fan-in" parameterType="integer" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="Max Fan-in">
     <defaultValue>5</defaultValue>
     <defaultValuesList>N/A</defaultValuesList>
   </metric>
@@ -76,7 +76,7 @@
     <defaultValue>10</defaultValue>
     <defaultValuesList>N/A</defaultValuesList>
   </metric>
-  <metric id="2351184" type="quality-rule" originalName="ColdFusion: Avoid Templates with high Cyclomatic Complexity" parameterName="Max CC" parameterType="integer" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="Max CC">
+  <metric id="2351184" type="quality-rule" originalName="ColdFusion: Avoid CFM's with high Cyclomatic Complexity" parameterName="Max CC" parameterType="integer" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="Max CC">
     <defaultValue>70</defaultValue>
     <defaultValuesList>N/A</defaultValuesList>
   </metric>
@@ -88,7 +88,7 @@
     <defaultValue>qry</defaultValue>
     <defaultValuesList>N/A</defaultValuesList>
   </metric>
-  <metric id="2351386" type="quality-rule" originalName="ColdFusion: Naming convention on Template" parameterName="Prefix" parameterType="text" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="Prefix">
+  <metric id="2351386" type="quality-rule" originalName="ColdFusion: Naming convention on CFM" parameterName="Prefix" parameterType="text" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="Prefix">
     <defaultValue>Tmpl_</defaultValue>
     <defaultValuesList>N/A</defaultValuesList>
   </metric>
@@ -96,11 +96,11 @@
     <defaultValue>10</defaultValue>
     <defaultValuesList>N/A</defaultValuesList>
   </metric>
-  <metric id="2351450" type="quality-rule" originalName="ColdFusion: Avoid Templates with a low comment/code ratio" parameterName="Min percent" parameterType="integer" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="Min percent">
+  <metric id="2351450" type="quality-rule" originalName="ColdFusion: Avoid CFM's with a low comment/code ratio" parameterName="Min percent" parameterType="integer" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="Min percent">
     <defaultValue>10</defaultValue>
     <defaultValuesList>N/A</defaultValuesList>
   </metric>
-  <metric id="2351860" type="quality-rule" originalName="ColdFusion: Avoid Templates with more than X Functions" parameterName="Max Nb Functions" parameterType="integer" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="Maximum Number Functions">
+  <metric id="2351860" type="quality-rule" originalName="ColdFusion: Avoid CFM's with more than X Functions" parameterName="Max Nb Functions" parameterType="integer" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="Maximum Number Functions">
     <defaultValue>10</defaultValue>
     <defaultValuesList>N/A</defaultValuesList>
   </metric>
@@ -109,7 +109,7 @@
     <defaultValue>50</defaultValue>
     <defaultValuesList>N/A</defaultValuesList>
   </metric>
-  <metric id="2351884" type="quality-rule" originalName="ColdFusion: Avoid Templates with more then XX Lines of Code" parameterName="Max LOC" parameterType="integer" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="Max LOC">
+  <metric id="2351884" type="quality-rule" originalName="ColdFusion: Avoid CFM's with more then XX Lines of Code" parameterName="Max LOC" parameterType="integer" parameterIndex="1" filter="2351000" filterLabel="ColdFusion" parameterDescription="Max LOC">
     <defaultValue>500</defaultValue>
     <defaultValuesList>N/A</defaultValuesList>
   </metric>

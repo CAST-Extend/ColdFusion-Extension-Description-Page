@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>com.castsoftware.uc.ColdFusion</id>
-    <version>3.0.8</version>
+    <version>3.0.9</version>
     <title>Technology Extension for ColdFusion</title>
     <authors>CAST User Community</authors>
     <owners>CAST</owners>

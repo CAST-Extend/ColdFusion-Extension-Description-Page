@@ -667,7 +667,7 @@ Begin
 		SC.TECHNO_TYPE					= 2351000   	-- Technologic CF object
 		And T1.APPLICATION_ID			= SC.MODULE_ID
 		And T1.OBJECT_TYPE				IN (2351010) 		-- CF Function and JFunction\
-      And T1.PARENT_TYPE              = 2351004  -- CF Template
+      And T1.PARENT_TYPE              = 2351021  -- CF Template
     	
 		And Not Exists 
 		(
@@ -868,7 +868,7 @@ CREATE OR REPLACE FUNCTION COLDFUSION_TEMPLATE_COUNT (
 Returns integer as $$
 DECLARE
 	ERRORCODE		INT := 0;
-	L_OBJECT_TYPE	INT := 2351004;	/* ColdFusion Template */
+	L_OBJECT_TYPE	INT := 2351021;	/* ColdFusion CFM (Template) */
 Begin
 
 	ERRORCODE := APM_SCOPE_OBJECT_TYPE( I_SNAPSHOT_ID, I_METRIC_PARENT_ID, I_METRIC_ID, I_METRIC_CHILD_ID, L_OBJECT_TYPE );
@@ -907,7 +907,7 @@ Begin
 		  DSSAPP_ARTIFACTS T1, DSSAPP_MODULES SC
 	Where
 		SC.TECHNO_TYPE					= 2351000   	-- Technologic Coldfusion
-		And T1.OBJECT_TYPE 				= 2351004 	    -- Coldfusion Template
+		And T1.OBJECT_TYPE 				= 2351021 	    -- Coldfusion CFM (Template)
 		And T1.APPLICATION_ID			= SC.MODULE_ID
 		And Not Exists
 		(
@@ -963,7 +963,7 @@ Begin
 		  DSSAPP_ARTIFACTS T1, DSSAPP_MODULES SC
 	Where
 		SC.TECHNO_TYPE					= 2351000   	-- Technologic XXX
-		And T1.OBJECT_TYPE 				= 2351004 	    -- Coldfusion Template
+		And T1.OBJECT_TYPE 				= 2351021 	    -- Coldfusion CFM (Template)
 		And T1.APPLICATION_ID			= SC.MODULE_ID
 		And Not Exists
 		(
@@ -1018,7 +1018,7 @@ Begin
 		CTT_OBJECT_APPLICATIONS T1, DSSAPP_MODULES SC
 	Where
 		SC.TECHNO_TYPE					= 2351000   	-- Technologic CF object
-		And T1.OBJECT_TYPE				= 2351004	   -- Techno CF Template
+		And T1.OBJECT_TYPE				= 2351021	   -- Techno CF CFM (Template)
 		And T1.APPLICATION_ID			= SC.MODULE_ID
     	And	Bitand(T1.PROPERTIES, 1)	= 0		-- Application's Object
 
@@ -1075,7 +1075,7 @@ Begin
 		SC.TECHNO_TYPE						= 2351000   	-- Technologic CF
 		And T1.APPLICATION_ID				= SC.MODULE_ID
 		  	-- Siebel Project
-		And T1.OBJECT_TYPE					= 2351004 	-- CF Template
+		And T1.OBJECT_TYPE					= 2351021 	-- CF CFM (Template)
 		And bitand(T1.PROPERTIES, 1)		= 0 -- Application's Object
 		And Exists
 		(
@@ -1140,10 +1140,10 @@ Begin
     From
 		DIAG_OBJECT_METRICS T4, DIAG_OBJECT_METRICS T3, DIAG_OBJECT_METRICS T2, CTT_OBJECT_APPLICATIONS T1, DSSAPP_MODULES SC
 	Where
-		SC.TECHNO_TYPE						= 2351000   	-- Technologic XXX object
+		SC.TECHNO_TYPE						= 2351000   	-- ColdFusion 
 		And T1.APPLICATION_ID			= SC.MODULE_ID
 		  	-- Siebel Project
-		And T1.OBJECT_TYPE					= 2351004 	-- Techno XXX artifact
+		And T1.OBJECT_TYPE					= 2351021 	-- ColfFusion CFM (Template)
 		And bitand(T1.PROPERTIES, 1)	= 0 -- Application's Object
         And T2.OBJECT_ID 						= T1.OBJECT_ID
         And T2.METRIC_TYPE 				= 'Number of heading comment lines'
@@ -1196,7 +1196,7 @@ Begin
 	Where
 		SC.TECHNO_TYPE			= 2351000  			-- Technologic ColdFusion object
 		And T1.APPLICATION_ID	= SC.MODULE_ID
-		AND T1.OBJECT_TYPE		= 2351004		-- Coldfusion Template
+		AND T1.OBJECT_TYPE		= 2351021		-- Coldfusion CFM (Template)
 		And T1.LONG_LINES > 0
  	;
 Return ERRORCODE;
@@ -1233,7 +1233,7 @@ Begin
     Where                    
 	    SC.TECHNO_TYPE					= 2351000  -- Technologic SQL Server object
 		And T1.APPLICATION_ID			= SC.MODULE_ID
-        And T1.OBJECT_TYPE 				= 2351004 	-- CF Template
+        And T1.OBJECT_TYPE 				= 2351021 	-- ColdFusion CFM (Template)
 		And Bitand(T1.PROPERTIES, 1)	= 0 		-- Application's Object
 		And Not Exists 
 		(
@@ -1566,7 +1566,7 @@ Begin
 		DSSAPP_ARTIFACTS T1, DSSAPP_MODULES SC
 	Where
 		SC.TECHNO_TYPE						= 2351000   		-- Technologic Coldfusion object
-		And T1.OBJECT_TYPE					= 2351004 			-- Coldfusion Template
+		And T1.OBJECT_TYPE					= 2351021 			-- Coldfusion CFM (Template)
 		And T1.APPLICATION_ID				= SC.MODULE_ID
 		And T1.CYCLOMATIC 					>
 		(
@@ -1625,7 +1625,7 @@ Begin
 		And MO.MODULE_ID					= SC.OBJECT_ID
   		And T1.APPLICATION_ID      			= SC.OBJECT_ID
 
-		And T1.OBJECT_TYPE					= 2351004 				-- Coldfusion Template
+		And T1.OBJECT_TYPE					= 2351021 				-- Coldfusion CFM (Template)
 		And bitand(T1.PROPERTIES, 1) 		= 0 					-- Application's Object
 
 		And Not Exists 
@@ -1671,7 +1671,7 @@ Begin
 	Where
 		SC.TECHNO_TYPE					= 2351000   		-- Technologic CF object
 		And T1.APPLICATION_ID			= SC.MODULE_ID
-        And T1.OBJECT_TYPE 				= 2351004 	  		-- Artifact : CF Template
+        And T1.OBJECT_TYPE 				= 2351021 	  		-- Artifact : ColdFusion CFM (Template)
 		And	Bitand(T1.PROPERTIES, 1)	= 0					-- Application's Object
         And T2.OBJECT_ID 				= T1.OBJECT_ID
         And T2.METRIC_TYPE	 			= 'Number of code lines'
@@ -1757,7 +1757,7 @@ Begin
 	Where
 		SC.TECHNO_TYPE								= 2351000   	-- Technologic ColdFusion object
 		And T1.APPLICATION_ID						= SC.MODULE_ID
-		And T1.OBJECT_TYPE							= 2351004 		-- Coldfusion Template
+		And T1.OBJECT_TYPE							= 2351021 		-- Coldfusion CFM (Template)
 		And Bitand(T1.PROPERTIES, 1)				= 0 			-- Application's Object
 		And T1.OBJECT_ID							= T2.OBJECT_ID
 		And T2.METRIC_TYPE							= 'Count of cffile'
@@ -1804,7 +1804,7 @@ Begin
 	Where
 		SC.TECHNO_TYPE						= 2351000   	-- Technologic ColdFusion object
 		And T1.APPLICATION_ID				= SC.MODULE_ID
-		And T1.OBJECT_TYPE					= 2351004 		-- Coldfusion Template
+		And T1.OBJECT_TYPE					= 2351021 		-- Coldfusion CFM (Template)
 		And Bitand(T1.PROPERTIES, 1)		= 0 			-- Application's Object
 		And T1.OBJECT_ID					= T2.OBJECT_ID
 		And coalesce(T2. METRIC_VALUE, 0) 	> coalesce(T3.METRIC_VALUE)
@@ -1886,7 +1886,7 @@ Begin
 	Where
 		SC.TECHNO_TYPE								= 2351000   	-- Technologic ColdFusion object
 		And T1.APPLICATION_ID						= SC.MODULE_ID
-		And T1.OBJECT_TYPE							= 2351004 	-- Coldfusion Template
+		And T1.OBJECT_TYPE							= 2351021 	-- Coldfusion CFM (Template)
 		And Bitand(T1.PROPERTIES, 1)				= 0 -- Application's Object
 		And T1.OBJECT_ID							= T2.OBJECT_ID
 		And T2.METRIC_TYPE							= 'Count of iif'    
@@ -1918,7 +1918,7 @@ Begin
 	Where
 		SC.TECHNO_TYPE								= 2351000   	-- Technologic ColdFusion object
 		And T1.APPLICATION_ID						= SC.MODULE_ID
-		And T1.OBJECT_TYPE							= 2351004 	-- Coldfusion Template
+		And T1.OBJECT_TYPE							= 2351021 	-- Coldfusion CFM (Template)
 		And Bitand(T1.PROPERTIES, 1)				= 0 -- Application's Object
 		And T1.OBJECT_ID							= T2.OBJECT_ID
 		And T2.METRIC_TYPE							= 'Number of SQL Queries Inside Loop'    
@@ -1950,7 +1950,7 @@ Begin
 	Where
 		SC.TECHNO_TYPE								= 2351000   	-- Technologic ColdFusion object
 		And T1.APPLICATION_ID						= SC.MODULE_ID
-		And T1.OBJECT_TYPE							= 2351004 	-- Coldfusion Template
+		And T1.OBJECT_TYPE							= 2351021 	-- Coldfusion CFM (Template)
 		And Bitand(T1.PROPERTIES, 1)				= 0 -- Application's Object
 		And T1.OBJECT_ID							= T2.OBJECT_ID
 		And T2.METRIC_TYPE							= 'Number of Instanciation Inside Loop'    
