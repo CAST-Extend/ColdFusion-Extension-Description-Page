@@ -16,6 +16,8 @@ import sqlparse
 from sqlparse.sql import IdentifierList, Identifier, Where, Comparison, Parenthesis
 from sqlparse.tokens import Keyword, DML
 import re
+import traceback
+import sys
 import cast.application
 
 
@@ -34,9 +36,25 @@ class ColdFusionExtension(cast.analysers.ua.Extension):
         self.cf_data = ""  
         self.cfWebService_List = []    
         self.valid_tags_list = ['cfcomponent', 'cffunction', 'cfquery', 'cfinvoke', 'cffile', 'cfftp', 'cfhttp', 'cftemplate']
+        self.extensions = ['.cfm','.cfml','.cfc']
+        self.active = False
         pass
     
     def start_analysis(self):
+        log.info(" Running Cold Fusion extension code at the start of the analysis")
+        try:
+            options = cast.analysers.get_ua_options() #@UndefinedVariable
+            if 'ColdFusion' not in options:
+                self.active = False
+            else:
+                self.active = True
+                self.extensions.extend(options['ColdFusion'].extensions)
+        except Exception as e:
+            exception_type, value, tb = sys.exc_info()
+            traceback_str = ''.join(traceback.format_tb(tb))
+            log.warning(traceback_str)
+            log.warning('exception_type = ' + str(exception_type) + ' Error message = ' + str(e))
+            log.warning(traceback_str)
         log.debug("Inside start_analysis")
         logging.info("Inside start_analysis")
         self.intermediate_file_CFInsertUpdate = self.get_intermediate_file("CFInsertUpdate_Table_Links.txt")
@@ -46,6 +64,8 @@ class ColdFusionExtension(cast.analysers.ua.Extension):
         pass
      
     def start_file(self, file):
+        if not self.active:
+            return # no need to do anything
         self.file = file
         self.filename = file.get_path()
         # file_ref = open(self.filename,encoding='UTF_8')
