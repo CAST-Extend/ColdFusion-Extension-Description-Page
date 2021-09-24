@@ -166,7 +166,6 @@
 		<inheritedCategory name="ColdFusion"/>
 		<inheritedCategory name="APM ColdFusion Artifacts"/>
 		<inheritedCategory name="METRICABLE"/>
-		<inheritedCategory name="metric"/>
 		<tree parent="EnlightenColdFusion" category="EnlightenTree"/>
     </type>
     
@@ -186,7 +185,6 @@
 		<inheritedCategory name="ColdFusion"/>
 		<inheritedCategory name="APM ColdFusion Artifacts"/>
 		<inheritedCategory name="METRICABLE"/>
-		<inheritedCategory name="metric"/>
 		<inheritedCategory name="ESQLSearchable"/>
 		<inheritedCategory name="caseInsensitive"/>
 		<tree parent="EnlightenUniversalObjects" category="EnlightenTree" />
@@ -198,7 +196,6 @@
 		<inheritedCategory name="ColdFusion"/>
 		<inheritedCategory name="APM ColdFusion Artifacts"/>
 		<inheritedCategory name="METRICABLE"/>
-		<inheritedCategory name="metric"/>
 		<inheritedCategory name="ESQLSearchable"/>
 		<inheritedCategory name="caseInsensitive"/>
 		<tree parent="EnlightenUniversalObjects" category="EnlightenTree" />
