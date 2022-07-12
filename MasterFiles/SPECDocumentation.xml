@@ -582,19 +582,19 @@ It provides the following information:
   </metric>
   
   
-  <metric id="2351460" type="quality-rule" originalName="ColdFusion: Avoid using SQL queries inside a loop" section="total">
+  <metric id="2351460" type="quality-rule" originalName="ColdFusion: Avoid using SQL queries inside a loop" section="name">
     <english>ColdFusion: Avoid using SQL queries inside a loop</english>
   </metric>
-   <metric id="2351460" type="quality-rule" originalName="ColdFusion: Avoid using SQL queries inside a loop" section="total">
+   <metric id="2351460" type="quality-rule" originalName="ColdFusion: Avoid using SQL queries inside a loop" section="rationale">
     <english>Having an SQL query inside a loop is usually the source of performance and scalability problems especially if the number of iterations become very high (for example if it is dependent on the data returned from the database). This iterative pattern has proved to be very dangerous for application performance and scalability. Database servers handle in a much better set-oriented pattern rather than pure iterative ones.</english>
   </metric>
-   <metric id="2351460" type="quality-rule" originalName="ColdFusion: Avoid using SQL queries inside a loop" section="total">
+   <metric id="2351460" type="quality-rule" originalName="ColdFusion: Avoid using SQL queries inside a loop" section="description">
     <english>This rule retrieves all CFM's using at least one SQL query (cfquery) inside a cfloop.</english>
   </metric>
-   <metric id="2351460" type="quality-rule" originalName="ColdFusion: Avoid using SQL queries inside a loop" section="total">
+   <metric id="2351460" type="quality-rule" originalName="ColdFusion: Avoid using SQL queries inside a loop" section="remediation">
     <english>The remediation is often to replace the iterative approach based on a loop with a set-oriented one and thus modify the query.</english>
   </metric>
-  <metric id="2351460" type="quality-rule" originalName="ColdFusion: Avoid using SQL queries inside a loop" section="total">
+  <metric id="2351460" type="quality-rule" originalName="ColdFusion: Avoid using SQL queries inside a loop" section="output">
    <english>This report lists all CFM's that have SQL queries inside loops.
 It provides the following information: CFM full name
  Number of loops having a SQL query</english>
@@ -603,22 +603,22 @@ It provides the following information: CFM full name
    <english>Number of CFM's</english>
   </metric>
   
-  <metric id="2351462" type="quality-rule" originalName="ColdFusion: Avoid instanciation in loop" section="total">
+  <metric id="2351462" type="quality-rule" originalName="ColdFusion: Avoid instanciation in loop" section="name">
    <english>ColdFusion: Avoid instanciation in loop</english>
   </metric>
-  <metric id="2351462" type="quality-rule" originalName="ColdFusion: Avoid instanciation in loop" section="total">
+  <metric id="2351462" type="quality-rule" originalName="ColdFusion: Avoid instanciation in loop" section="rationale">
    <english>One of the fundamental OO performance management principles is this: Avoid excessive object creation. This doesn't mean that you should give up the benefits of object-oriented programming by not creating any objects, but you should be wary of object creation inside of tight loops when executing performance-critical code. Object creation is expensive enough that you should avoid unnecessarily creating temporary or intermediate objects in situations where performance is an issue.</english>
   </metric>
-  <metric id="2351462" type="quality-rule" originalName="ColdFusion: Avoid instanciation in loop" section="total">
+  <metric id="2351462" type="quality-rule" originalName="ColdFusion: Avoid instanciation in loop" section="description">
    <english>Reports all templates with loops (for, while, do while) that contain object instantiations (object creation).</english>
   </metric>
-  <metric id="2351462" type="quality-rule" originalName="ColdFusion: Avoid instanciation in loop" section="total">
+  <metric id="2351462" type="quality-rule" originalName="ColdFusion: Avoid instanciation in loop" section="remediation">
    <english>Whenever possible, redesign the loop.</english>
   </metric>
-  <metric id="2351462" type="quality-rule" originalName="ColdFusion: Avoid instanciation in loop" section="total">
+  <metric id="2351462" type="quality-rule" originalName="ColdFusion: Avoid instanciation in loop" section="reference">
    <english>http://www.bennadel.com/blog/737-How-ColdFusion-CreateObject-Really-Works-With-Java-Objects.htm</english>
   </metric>
-  <metric id="2351462" type="quality-rule" originalName="ColdFusion: Avoid instanciation in loop" section="total">
+  <metric id="2351462" type="quality-rule" originalName="ColdFusion: Avoid instanciation in loop" section="output">
    <english>This report lists all CFM's that instanciate objects inside loops.
 It provides the following information: 
 - CFM full name

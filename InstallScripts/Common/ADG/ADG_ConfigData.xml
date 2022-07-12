@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<DATA model='Central Model' version='1.0.0.20' scope='METRICS' export='OK'><!-- File generated with CAST Metrics Compiler - 8.3.6 -->
+<DATA model='Central Model' version='1.0.0.20' scope='METRICS' export='OK'><!-- File generated with CAST Metrics Compiler - 8.3.30 -->
   <DSS_METRIC_TYPES>
     <METRIC_ID>2351000</METRIC_ID>
     <METRIC_NAME>Number of ColdFusion Components</METRIC_NAME>
@@ -4426,6 +4426,32 @@ It provides the following information: CFM full name, comment / code ratio</METR
   </DSS_METRIC_DESCRIPTIONS>
   <DSS_METRIC_DESCRIPTIONS>
     <METRIC_ID>2351460</METRIC_ID>
+    <DESCRIPTION_TYPE_ID>1</DESCRIPTION_TYPE_ID>
+    <LANGUAGE>ENGLISH</LANGUAGE>
+    <METRIC_DESCRIPTION>Having an SQL query inside a loop is usually the source of performance and scalability problems especially if the number of iterations become very high (for example if it is dependent on the data returned from the database). This iterative pattern has proved to be very dangerous for application performance and scalability. Database servers handle in a much better set-oriented pattern rather than pure iterative ones.</METRIC_DESCRIPTION>
+  </DSS_METRIC_DESCRIPTIONS>
+  <DSS_METRIC_DESCRIPTIONS>
+    <METRIC_ID>2351460</METRIC_ID>
+    <DESCRIPTION_TYPE_ID>2</DESCRIPTION_TYPE_ID>
+    <LANGUAGE>ENGLISH</LANGUAGE>
+    <METRIC_DESCRIPTION>This rule retrieves all CFM's using at least one SQL query (cfquery) inside a cfloop.</METRIC_DESCRIPTION>
+  </DSS_METRIC_DESCRIPTIONS>
+  <DSS_METRIC_DESCRIPTIONS>
+    <METRIC_ID>2351460</METRIC_ID>
+    <DESCRIPTION_TYPE_ID>3</DESCRIPTION_TYPE_ID>
+    <LANGUAGE>ENGLISH</LANGUAGE>
+    <METRIC_DESCRIPTION>The remediation is often to replace the iterative approach based on a loop with a set-oriented one and thus modify the query.</METRIC_DESCRIPTION>
+  </DSS_METRIC_DESCRIPTIONS>
+  <DSS_METRIC_DESCRIPTIONS>
+    <METRIC_ID>2351460</METRIC_ID>
+    <DESCRIPTION_TYPE_ID>7</DESCRIPTION_TYPE_ID>
+    <LANGUAGE>ENGLISH</LANGUAGE>
+    <METRIC_DESCRIPTION>This report lists all CFM's that have SQL queries inside loops.
+It provides the following information: CFM full name
+ Number of loops having a SQL query</METRIC_DESCRIPTION>
+  </DSS_METRIC_DESCRIPTIONS>
+  <DSS_METRIC_DESCRIPTIONS>
+    <METRIC_ID>2351460</METRIC_ID>
     <DESCRIPTION_TYPE_ID>8</DESCRIPTION_TYPE_ID>
     <LANGUAGE>ENGLISH</LANGUAGE>
     <METRIC_DESCRIPTION>Number of CFM's</METRIC_DESCRIPTION>
@@ -4435,6 +4461,39 @@ It provides the following information: CFM full name, comment / code ratio</METR
     <DESCRIPTION_TYPE_ID>0</DESCRIPTION_TYPE_ID>
     <LANGUAGE>ENGLISH</LANGUAGE>
     <METRIC_DESCRIPTION>ColdFusion: Avoid instanciation in loop</METRIC_DESCRIPTION>
+  </DSS_METRIC_DESCRIPTIONS>
+  <DSS_METRIC_DESCRIPTIONS>
+    <METRIC_ID>2351462</METRIC_ID>
+    <DESCRIPTION_TYPE_ID>1</DESCRIPTION_TYPE_ID>
+    <LANGUAGE>ENGLISH</LANGUAGE>
+    <METRIC_DESCRIPTION>One of the fundamental OO performance management principles is this: Avoid excessive object creation. This doesn't mean that you should give up the benefits of object-oriented programming by not creating any objects, but you should be wary of object creation inside of tight loops when executing performance-critical code. Object creation is expensive enough that you should avoid unnecessarily creating temporary or intermediate objects in situations where performance is an issue.</METRIC_DESCRIPTION>
+  </DSS_METRIC_DESCRIPTIONS>
+  <DSS_METRIC_DESCRIPTIONS>
+    <METRIC_ID>2351462</METRIC_ID>
+    <DESCRIPTION_TYPE_ID>2</DESCRIPTION_TYPE_ID>
+    <LANGUAGE>ENGLISH</LANGUAGE>
+    <METRIC_DESCRIPTION>Reports all templates with loops (for, while, do while) that contain object instantiations (object creation).</METRIC_DESCRIPTION>
+  </DSS_METRIC_DESCRIPTIONS>
+  <DSS_METRIC_DESCRIPTIONS>
+    <METRIC_ID>2351462</METRIC_ID>
+    <DESCRIPTION_TYPE_ID>3</DESCRIPTION_TYPE_ID>
+    <LANGUAGE>ENGLISH</LANGUAGE>
+    <METRIC_DESCRIPTION>Whenever possible, redesign the loop.</METRIC_DESCRIPTION>
+  </DSS_METRIC_DESCRIPTIONS>
+  <DSS_METRIC_DESCRIPTIONS>
+    <METRIC_ID>2351462</METRIC_ID>
+    <DESCRIPTION_TYPE_ID>4</DESCRIPTION_TYPE_ID>
+    <LANGUAGE>ENGLISH</LANGUAGE>
+    <METRIC_DESCRIPTION>http://www.bennadel.com/blog/737-How-ColdFusion-CreateObject-Really-Works-With-Java-Objects.htm</METRIC_DESCRIPTION>
+  </DSS_METRIC_DESCRIPTIONS>
+  <DSS_METRIC_DESCRIPTIONS>
+    <METRIC_ID>2351462</METRIC_ID>
+    <DESCRIPTION_TYPE_ID>7</DESCRIPTION_TYPE_ID>
+    <LANGUAGE>ENGLISH</LANGUAGE>
+    <METRIC_DESCRIPTION>This report lists all CFM's that instanciate objects inside loops.
+It provides the following information: 
+- CFM full name
+- Number of loops having an object creation</METRIC_DESCRIPTION>
   </DSS_METRIC_DESCRIPTIONS>
   <DSS_METRIC_DESCRIPTIONS>
     <METRIC_ID>2351462</METRIC_ID>
