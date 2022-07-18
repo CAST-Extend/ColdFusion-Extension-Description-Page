@@ -180,31 +180,32 @@ class ColdFusionExternalLinks():
         linksReferenceFinder = ReferenceFinder()
         for pn, pd in patterns.items():
             linksReferenceFinder.add_pattern(pn, '', pd[0], '')
-        for f in application.get_files():
-            logging.info('Searching for references in %s', f.get_path())
-            for reference in linksReferenceFinder.find_references_in_file(f):
-                # Using logging.info for inestigations
-                # logging.debug('Reference found: %s', reference.value)
-                logging.info('Reference found: %s', reference.value)
-                callee_name = re.sub(patterns[reference.pattern_name][0], r'\1', reference.value)
-                # Using logging.info for inestigations
-                # logging.debug('Callee name: %s', callee_name)
-                logging.info('Callee name: %s', callee_name)
-                for application_object in application_objects :
-                    if application_object.get_type() in prefixes:
-                        calle_name_with_prefix = prefixes[application_object.get_type()] + callee_name
-                    else:
-                        callee_name_with_prefix = callee_name
-                    if application_object.get_name() == callee_name_with_prefix:
-                        logging.info('Creating link between %s(%s) and %s(%s)', 
-                                     reference.object.get_fullname(), 
-                                     reference.object.get_type(),
-                                     application_object.get_fullname(),
-                                     application_object.get_type())
-                        cast.application.create_link(patterns[reference.pattern_name][1], 
-                                                reference.object, 
-                                                application_object, 
-                                                reference.bookmark)
+        for f in application.get_files(['sourceFile']):
+            if f.get_path().lower().endswith(('.cfc', '.cfm', '.cfml')):
+                logging.info('Searching for references in %s', f.get_path())
+                for reference in linksReferenceFinder.find_references_in_file(f):
+                    # Using logging.info for inestigations
+                    # logging.debug('Reference found: %s', reference.value)
+                    logging.info('Reference found: %s', reference.value)
+                    callee_name = re.sub(patterns[reference.pattern_name][0], r'\1', reference.value)
+                    # Using logging.info for inestigations
+                    # logging.debug('Callee name: %s', callee_name)
+                    logging.info('Callee name: %s', callee_name)
+                    for application_object in application_objects :
+                        if application_object.get_type() in prefixes:
+                            calle_name_with_prefix = prefixes[application_object.get_type()] + callee_name
+                        else:
+                            callee_name_with_prefix = callee_name
+                        if application_object.get_name() == callee_name_with_prefix:
+                            logging.info('Creating link between %s(%s) and %s(%s)', 
+                                         reference.object.get_fullname(), 
+                                         reference.object.get_type(),
+                                         application_object.get_fullname(),
+                                         application_object.get_type())
+                            cast.application.create_link(patterns[reference.pattern_name][1], 
+                                                    reference.object, 
+                                                    application_object, 
+                                                    reference.bookmark)
     
 if __name__ == '__main__':
     pass

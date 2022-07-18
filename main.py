@@ -75,7 +75,6 @@ class ColdFusionExtension(cast.analysers.ua.Extension):
                 numberofcommentlines += 1
             elif len(l.strip()) != 0:
                 numberofcodelines += 1
-        log.info('count_slice_lines -- number of code lines: {codelines}, number of comment lines: {commentlines}'.format(codelines = numberofcodelines, commentlines = numberofcommentlines))
         return numberofcodelines, numberofcommentlines
     
     def count_lines(self, s):
@@ -156,6 +155,7 @@ class ColdFusionExtension(cast.analysers.ua.Extension):
             # self.cftemplate_fullname = self.filename+".CFTemplate."+splitext(base)[0]
             self.cftemplate_fullname = self.filename + splitext(base)[0]   
             log.debug("self.cftemplate_fullname->" + str(self.cftemplate_fullname))
+            log.info("self.cftemplate_fullname->"+ str(self.cftemplate_fullname))
             self.file_fullname = self.cftemplate_fullname       
             CFTemplate = CustomObject()
             self.saveObject(CFTemplate, self.name, self.cftemplate_fullname, "ColdFusion_CFM", file, self.cftemplate_fullname)
@@ -324,6 +324,7 @@ class ColdFusionExtension(cast.analysers.ua.Extension):
                             cffunction.set_guid(key)
                             cffunction.save()
                             cffunction.save_position(self.getbookmark(file, child))
+                            log.info("cffunction=="+ str(child))
                             numberofcodelines, numberofcommentlines = self.count_lines(str(child))
                             log.info('cffunction -- number of code lines: {codelines}, number of comment lines: {commentlines}'.format(codelines = numberofcodelines, commentlines = numberofcommentlines))
                             cffunction.save_property('metric.CodeLinesCount', numberofcodelines)
