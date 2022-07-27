@@ -72,9 +72,9 @@ class ColdFusionExtension(cast.analysers.ua.Extension):
         numberofcommentlines = 0
         for l in s.split("\n"):
             if l.strip().find("//") == 0:
-                numberofcommentlines += 1
+                numberofcommentlines = numberofcommentlines + 1
             elif len(l.strip()) != 0:
-                numberofcodelines += 1
+                numberofcodelines = numberofcodelines + 1
         return numberofcodelines, numberofcommentlines
     
     def count_lines(self, s):
@@ -87,15 +87,17 @@ class ColdFusionExtension(cast.analysers.ua.Extension):
         end = 0
         start = s.find(startcomment)
         while start >= 0:
-            numberofslicecodelines, numberofslicecommentlines = self.count_slice_lines(s[end:start])
-            numberofcodelines += numberofslicecodelines
-            numberofcommentlines += numberofslicecommentlines
-            end = s.find(endcomment, start) + endcommentlen
-            numberofcommentlines += s.count("\n", start, end) + 1
+            start = start + end
+            if start > end:
+                numberofslicecodelines, numberofslicecommentlines = self.count_slice_lines(s[end:start])
+                numberofcodelines = numberofcodelines + numberofslicecodelines
+                numberofcommentlines = numberofcommentlines + numberofslicecommentlines
+            end = s.find(endcomment, start) + start + endcommentlen
+            numberofcommentlines = numberofcommentlines + s.count("\n", start, end) + 1
             start = s.find(startcomment, end)
         numberofslicecodelines, numberofslicecommentlines = self.count_slice_lines(s[end:])
-        numberofcodelines += numberofslicecodelines
-        numberofcommentlines += numberofslicecommentlines
+        numberofcodelines = numberofcodelines + numberofslicecodelines
+        numberofcommentlines = numberofcommentlines + numberofslicecommentlines
         log.info('count_lines -- number of code lines: {codelines}, number of comment lines: {commentlines}'.format(codelines = numberofcodelines, commentlines = numberofcommentlines))
         return numberofcodelines, numberofcommentlines
     
