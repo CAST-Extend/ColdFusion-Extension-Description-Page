@@ -166,7 +166,6 @@ class ColdFusionExternalLinks():
         patterns = {'methodCall': (r'methodcall\s*=\s*"(\w+)', 'callLink'),
                     'dotNameCall': (r'\.+(\w+)', 'callLink'),
                     'slashNameCall': (r'/([a-zA-Z_\x7f-\xff][\w.\x7f-\xff]*)', 'callLink')}
-        application_objects = [ application_object for application_object in application.objects()]
         prefixes = {'CFComponent': 'cfcomponent.',
                     'CFMail': 'cfmail.',
                     'CFQuery': 'cfquery.',
@@ -177,6 +176,18 @@ class ColdFusionExternalLinks():
                     'CFFunction': 'cffunction.',
                     'CFWebService': 'cfwebservice.'}
 
+        application_objects = {}
+        for application_object in application.objects():
+            object_type = application_object.get_type()
+            if object_type in prefixes:
+                key = application_object.get_name()[len(prefixes[object_type]):]
+            else:
+                key = application_object.get_name()
+            if key in application_objects:
+                application_objects[key].append(application_object)
+            else:
+                application_objects[key] = [application_object]
+
         linksReferenceFinder = ReferenceFinder()
         for pn, pd in patterns.items():
             linksReferenceFinder.add_pattern(pn, '', pd[0], '')
@@ -184,28 +195,21 @@ class ColdFusionExternalLinks():
             if f.get_path().lower().endswith(('.cfc', '.cfm', '.cfml')):
                 logging.info('Searching for references in %s', f.get_path())
                 for reference in linksReferenceFinder.find_references_in_file(f):
-                    # Using logging.info for inestigations
-                    # logging.debug('Reference found: %s', reference.value)
-                    logging.info('Reference found: %s', reference.value)
+                    logging.debug('Reference found: %s', reference.value)
                     callee_name = re.sub(patterns[reference.pattern_name][0], r'\1', reference.value)
-                    # Using logging.info for inestigations
-                    # logging.debug('Callee name: %s', callee_name)
-                    logging.info('Callee name: %s', callee_name)
-                    for application_object in application_objects :
-                        if application_object.get_type() in prefixes:
-                            calle_name_with_prefix = prefixes[application_object.get_type()] + callee_name
-                        else:
-                            callee_name_with_prefix = callee_name
-                        if application_object.get_name() == callee_name_with_prefix:
+                    logging.debug('Callee name: %s', callee_name)
+                    if callee_name in application_objects:
+                        for application_object in application_objects[callee_name]:
                             logging.info('Creating link between %s(%s) and %s(%s)', 
                                          reference.object.get_fullname(), 
                                          reference.object.get_type(),
                                          application_object.get_fullname(),
                                          application_object.get_type())
-                            cast.application.create_link(patterns[reference.pattern_name][1], 
-                                                    reference.object, 
-                                                    application_object, 
-                                                    reference.bookmark)
+                            new_link = cast.application.create_link(patterns[reference.pattern_name][1], 
+                                                                    reference.object, 
+                                                                    application_object, 
+                                                                    reference.bookmark)
+                            new_link.mark_as_not_sure()
     
 if __name__ == '__main__':
     pass
