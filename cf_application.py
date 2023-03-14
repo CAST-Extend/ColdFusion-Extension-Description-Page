@@ -39,7 +39,6 @@ class ColdFusionExtension(cast.application.ApplicationLevelExtension):
         ColdFusionExternalLinks.InvokeWebMethodAndComponentLinking(self,application,'CFInvokeProperties')
         ColdFusionExternalLinks.CFUpdateInsertTablesLinking(self,application,CFInsertUpdate_Tables_List)
         ColdFusionExternalLinks.CFStoredProcLinking(self,application,CFStored_Proc_List)
-        ColdFusionExternalLinks.CFPatternLinking(self, application)
 
     pass
 
@@ -155,57 +154,6 @@ class ColdFusionExternalLinks():
                 cast.application.create_link("callLink", parent, child);
                 logging.info("Proc Link Created")    
         pass
-    
-    def CFPatternLinking(self, application):
-        ''' Link ColdFusion objects based on pattern. 
-        
-            See links element in ColdFusionLanguagePattern.xml. InvokeWebMethodAndComponentLinking already provides the support of links from cfinvoke objects.
-        '''
-        logging.info('Creating links based on patterns')
-        
-        patterns = {'methodCall': (r'methodcall\s*=\s*"(\w+)', 'callLink'),
-                    'dotNameCall': (r'\.+(\w+)', 'callLink'),
-                    'slashNameCall': (r'/([a-zA-Z_\x7f-\xff][\w.\x7f-\xff]*)', 'callLink')}
-        application_objects = [ application_object for application_object in application.objects()]
-        prefixes = {'CFComponent': 'cfcomponent.',
-                    'CFMail': 'cfmail.',
-                    'CFQuery': 'cfquery.',
-                    'CFInvoke': 'cfinvoke.',
-                    'CFFile': 'cffile.',
-                    'CFFTP': 'cfftp.',
-                    'CFHttp': 'cfhttp.',
-                    'CFFunction': 'cffunction.',
-                    'CFWebService': 'cfwebservice.'}
-
-        linksReferenceFinder = ReferenceFinder()
-        for pn, pd in patterns.items():
-            linksReferenceFinder.add_pattern(pn, '', pd[0], '')
-        for f in application.get_files(['sourceFile']):
-            if f.get_path().lower().endswith(('.cfc', '.cfm', '.cfml')):
-                logging.info('Searching for references in %s', f.get_path())
-                for reference in linksReferenceFinder.find_references_in_file(f):
-                    # Using logging.info for inestigations
-                    # logging.debug('Reference found: %s', reference.value)
-                    logging.info('Reference found: %s', reference.value)
-                    callee_name = re.sub(patterns[reference.pattern_name][0], r'\1', reference.value)
-                    # Using logging.info for inestigations
-                    # logging.debug('Callee name: %s', callee_name)
-                    logging.info('Callee name: %s', callee_name)
-                    for application_object in application_objects :
-                        if application_object.get_type() in prefixes:
-                            calle_name_with_prefix = prefixes[application_object.get_type()] + callee_name
-                        else:
-                            callee_name_with_prefix = callee_name
-                        if application_object.get_name() == callee_name_with_prefix:
-                            logging.info('Creating link between %s(%s) and %s(%s)', 
-                                         reference.object.get_fullname(), 
-                                         reference.object.get_type(),
-                                         application_object.get_fullname(),
-                                         application_object.get_type())
-                            cast.application.create_link(patterns[reference.pattern_name][1], 
-                                                    reference.object, 
-                                                    application_object, 
-                                                    reference.bookmark)
     
 if __name__ == '__main__':
     pass

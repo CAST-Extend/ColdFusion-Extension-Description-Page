@@ -117,6 +117,10 @@ class ColdFusionExtension(cast.analysers.ua.Extension):
                 except Exception as e:
                     import traceback
                     e = traceback.format_exc(e)
+        
+        if len(file_data) == 0:
+            log.info('"{n}" is empty and will not be processed.'.format(n = self.filename))
+            return
    
         parser = CastOperation()
         

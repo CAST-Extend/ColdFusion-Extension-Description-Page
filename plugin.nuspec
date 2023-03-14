@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>com.castsoftware.uc.ColdFusion</id>
-    <version>4.0.3</version>
+    <version>4.0.4</version>
     <title>Technology Extension for ColdFusion</title>
     <authors>CAST User Community</authors>
     <owners>CAST</owners>
